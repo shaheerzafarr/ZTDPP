@@ -1,0 +1,28 @@
+# ── Python ──
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+
+# ── Keys (NEVER commit private keys) ──
+signer/keys/private_key.pem
+
+# ── Database ──
+backend/registry/*.db
+
+# ── Training data (too large for Git) ──
+data/
+checkpoints/*.pth
+checkpoints/*.onnx
+
+# ── Node / Frontend ──
+frontend/node_modules/
+frontend/dist/
+
+# ── IDE ──
+.vscode/
+.idea/
+
+# ── OS ──
+.DS_Store
+Thumbs.db

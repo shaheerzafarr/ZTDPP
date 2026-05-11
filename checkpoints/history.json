@@ -1,0 +1,122 @@
+[
+  {
+    "epoch": 1,
+    "phase": 1,
+    "tr_loss": 0.5537,
+    "tr_acc": 0.7619,
+    "va_loss": 0.4758,
+    "va_acc": 0.8117
+  },
+  {
+    "epoch": 2,
+    "phase": 1,
+    "tr_loss": 0.4604,
+    "tr_acc": 0.7986,
+    "va_loss": 0.4306,
+    "va_acc": 0.8243
+  },
+  {
+    "epoch": 3,
+    "phase": 1,
+    "tr_loss": 0.4337,
+    "tr_acc": 0.8088,
+    "va_loss": 0.4094,
+    "va_acc": 0.8337
+  },
+  {
+    "epoch": 4,
+    "phase": 1,
+    "tr_loss": 0.4254,
+    "tr_acc": 0.8115,
+    "va_loss": 0.4055,
+    "va_acc": 0.8311
+  },
+  {
+    "epoch": 5,
+    "phase": 1,
+    "tr_loss": 0.4213,
+    "tr_acc": 0.8129,
+    "va_loss": 0.3999,
+    "va_acc": 0.8348
+  },
+  {
+    "epoch": 6,
+    "phase": 2,
+    "tr_loss": 0.3811,
+    "tr_acc": 0.8314,
+    "va_loss": 0.3195,
+    "va_acc": 0.8668
+  },
+  {
+    "epoch": 7,
+    "phase": 2,
+    "tr_loss": 0.3336,
+    "tr_acc": 0.8541,
+    "va_loss": 0.2824,
+    "va_acc": 0.8837
+  },
+  {
+    "epoch": 8,
+    "phase": 2,
+    "tr_loss": 0.3075,
+    "tr_acc": 0.8691,
+    "va_loss": 0.2624,
+    "va_acc": 0.8941
+  },
+  {
+    "epoch": 9,
+    "phase": 2,
+    "tr_loss": 0.2961,
+    "tr_acc": 0.8756,
+    "va_loss": 0.2498,
+    "va_acc": 0.8986
+  },
+  {
+    "epoch": 10,
+    "phase": 2,
+    "tr_loss": 0.2866,
+    "tr_acc": 0.8786,
+    "va_loss": 0.248,
+    "va_acc": 0.9011
+  },
+  {
+    "epoch": 11,
+    "phase": 2,
+    "tr_loss": 0.279,
+    "tr_acc": 0.8826,
+    "va_loss": 0.2408,
+    "va_acc": 0.9033
+  },
+  {
+    "epoch": 12,
+    "phase": 2,
+    "tr_loss": 0.2744,
+    "tr_acc": 0.8838,
+    "va_loss": 0.2389,
+    "va_acc": 0.9041
+  },
+  {
+    "epoch": 13,
+    "phase": 2,
+    "tr_loss": 0.2746,
+    "tr_acc": 0.8841,
+    "va_loss": 0.2368,
+    "va_acc": 0.9041
+  },
+  {
+    "epoch": 14,
+    "phase": 2,
+    "tr_loss": 0.2686,
+    "tr_acc": 0.8866,
+    "va_loss": 0.2358,
+    "va_acc": 0.9045
+  },
+  {
+    "epoch": 15,
+    "phase": 2,
+    "tr_loss": 0.2699,
+    "tr_acc": 0.886,
+    "va_loss": 0.2364,
+    "va_acc": 0.9054
+  }
+]

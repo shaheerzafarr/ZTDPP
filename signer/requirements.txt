@@ -1,0 +1,14 @@
+# ── ZTDPP Signer Requirements ─────────────────────────────────────────────────
+# Install: pip install -r requirements.txt
+# Run:     python keygen.py | python signer.py <image>
+
+# Cryptography (ECDSA P-256 signing)
+cryptography==48.0.0
+cffi==2.0.0
+
+# Image processing
+pillow==12.1.1
+piexif==1.1.3
+
+# Utilities
+typing_extensions==4.15.0

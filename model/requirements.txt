@@ -1,0 +1,28 @@
+# ── ZTDPP Model Training Requirements ────────────────────────────────────────
+# Install: pip install -r requirements.txt
+# Run:     python train.py
+
+# Deep Learning (PyTorch + GPU/CUDA 11.8)
+torch==2.5.1+cu118
+torchvision==0.20.1+cu118
+torchaudio==2.5.1+cu118
+
+# Install PyTorch with CUDA from the official index:
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# Data handling
+numpy==2.2.6
+pillow==12.1.1
+pandas==2.3.3
+
+# Visualisation
+matplotlib==3.10.9
+
+# Dataset download
+kaggle==1.7.4.5
+requests==2.33.1
+
+# Utilities
+tqdm==4.67.3
+scikit-learn==1.7.2
+typing_extensions==4.15.0
