@@ -1,0 +1,76 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  caption-side: bottom;
+  font-size: var(--fs14);
+}
+
+.header {
+  background: var(--blue-7);
+}
+
+.header tr {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.body tr:last-child {
+  border-bottom-width: 0;
+}
+
+.footer {
+  border-top: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.5);
+  font-weight: 500;
+}
+
+.footer > tr:last-child {
+  border-bottom-width: 0;
+}
+
+.row {
+  border-bottom: 1px solid hsl(var(--border));
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.row:hover {
+  background: hsl(var(--muted) / 0.5);
+}
+
+.row[data-state="selected"] {
+  background: hsl(var(--muted));
+}
+
+.head {
+  height: var(--s36);
+  padding-left: var(--s16);
+  padding-right: var(--s16);
+  text-align: left;
+  vertical-align: middle;
+  font-size: var(--fs13);
+  font-weight: 500;
+  color: var(--gray-7);
+}
+
+.head:has([role="checkbox"]) {
+  padding-right: 0;
+}
+
+.cell {
+  padding: var(--s14);
+  vertical-align: middle;
+}
+
+.cell:has([role="checkbox"]) {
+  padding-right: 0;
+}
+
+.caption {
+  margin-top: var(--s16);
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+}

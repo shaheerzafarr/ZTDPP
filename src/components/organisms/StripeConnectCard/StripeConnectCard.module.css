@@ -1,0 +1,73 @@
+.wrapper {
+  position: relative;
+}
+
+.title {
+  font-size: var(--fs16);
+  font-weight: 600;
+  color: hsl(var(--primary));
+  margin-bottom: var(--s24);
+}
+
+.body {
+  padding-top: var(--s32);
+  padding-bottom: var(--s32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--s20);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heading {
+  font-size: var(--fs20);
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.description {
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+  line-height: var(--lh150);
+}
+
+.connectedGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s12);
+}
+
+.connectedBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--s6);
+  border-radius: var(--radius-pill);
+  background: hsl(var(--primary) / 0.1);
+  padding: var(--s8) var(--s16);
+  font-size: var(--fs14);
+  font-weight: 500;
+  color: hsl(var(--primary));
+}
+
+.disconnectButton {
+  border-color: hsl(var(--destructive));
+  color: hsl(var(--destructive));
+}
+
+.disconnectButton:hover {
+  background: hsl(var(--destructive) / 0.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: hsl(var(--background) / 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-card);
+}

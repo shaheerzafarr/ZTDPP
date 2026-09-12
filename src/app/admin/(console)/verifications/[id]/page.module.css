@@ -1,0 +1,13 @@
+.meta {
+  padding: var(--s16) var(--s20);
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: hsl(var(--card));
+}
+
+.inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s8);
+}

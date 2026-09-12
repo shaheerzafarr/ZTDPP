@@ -1,0 +1,28 @@
+.textarea {
+  display: flex;
+  min-height: 80px;
+  width: 100%;
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius-md);
+  background: hsl(var(--background));
+  padding: var(--s8) var(--s12);
+  color: hsl(var(--foreground));
+  font-family: inherit;
+  font-size: var(--fs14);
+}
+
+.textarea::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+.textarea:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
+}
+
+.textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

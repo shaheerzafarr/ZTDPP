@@ -1,0 +1,186 @@
+.container {
+  display: flex;
+  aspect-ratio: 16 / 9;
+  justify-content: center;
+  font-size: var(--fs12);
+}
+
+.container :global(.recharts-cartesian-axis-tick) text {
+  fill: hsl(var(--muted-foreground));
+}
+
+.container :global(.recharts-cartesian-grid) line[stroke="#ccc"] {
+  stroke: hsl(var(--border) / 0.5);
+}
+
+.container :global(.recharts-curve.recharts-tooltip-cursor) {
+  stroke: hsl(var(--border));
+}
+
+.container :global(.recharts-dot[stroke="#fff"]) {
+  stroke: transparent;
+}
+
+.container :global(.recharts-layer) {
+  outline: none;
+}
+
+.container :global(.recharts-polar-grid) [stroke="#ccc"] {
+  stroke: hsl(var(--border));
+}
+
+.container :global(.recharts-radial-bar-background-sector) {
+  fill: hsl(var(--muted));
+}
+
+.container :global(.recharts-rectangle.recharts-tooltip-cursor) {
+  fill: hsl(var(--muted));
+}
+
+.container :global(.recharts-reference-line) [stroke="#ccc"] {
+  stroke: hsl(var(--border));
+}
+
+.container :global(.recharts-sector[stroke="#fff"]) {
+  stroke: transparent;
+}
+
+.container :global(.recharts-sector) {
+  outline: none;
+}
+
+.container :global(.recharts-surface) {
+  outline: none;
+}
+
+.tooltipLabel {
+  font-weight: 500;
+}
+
+.tooltip {
+  display: grid;
+  min-width: 8rem;
+  align-items: start;
+  gap: var(--s6);
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border) / 0.5);
+  background: hsl(var(--background));
+  padding: var(--s6) var(--s10);
+  font-size: var(--fs12);
+  box-shadow: var(--shadow-popover);
+}
+
+.tooltipItems {
+  display: grid;
+  gap: var(--s6);
+}
+
+.tooltipItem {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: var(--s8);
+}
+
+.tooltipItem > svg {
+  height: var(--s10);
+  width: var(--s10);
+  color: hsl(var(--muted-foreground));
+}
+
+.tooltipItemCenter {
+  align-items: center;
+}
+
+.indicator {
+  flex-shrink: 0;
+  border-radius: 2px;
+  border-color: var(--color-border);
+  background: var(--color-bg);
+}
+
+.indicatorDot {
+  height: var(--s10);
+  width: var(--s10);
+}
+
+.indicatorLine {
+  width: var(--s4);
+}
+
+.indicatorDashed {
+  width: 0;
+  border: 1.5px dashed var(--color-border);
+  background: transparent;
+}
+
+.indicatorDashedNested {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.tooltipItemBody {
+  display: flex;
+  flex: 1 1 0%;
+  justify-content: space-between;
+  line-height: 1;
+}
+
+.tooltipItemBodyEnd {
+  align-items: flex-end;
+}
+
+.tooltipItemBodyCenter {
+  align-items: center;
+}
+
+.tooltipItemLabels {
+  display: grid;
+  gap: var(--s6);
+}
+
+.tooltipItemName {
+  color: hsl(var(--muted-foreground));
+}
+
+.tooltipItemValue {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: hsl(var(--foreground));
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s16);
+}
+
+.legendTop {
+  padding-bottom: var(--s12);
+}
+
+.legendBottom {
+  padding-top: var(--s12);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: var(--s6);
+}
+
+.legendItem > svg {
+  height: var(--s12);
+  width: var(--s12);
+  color: hsl(var(--muted-foreground));
+}
+
+.legendSwatch {
+  height: var(--s8);
+  width: var(--s8);
+  flex-shrink: 0;
+  border-radius: 2px;
+}

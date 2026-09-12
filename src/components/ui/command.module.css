@@ -1,0 +1,156 @@
+/* Command — cmdk palette. Descendant rules target cmdk's own [cmdk-*] hooks. */
+
+.command {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+}
+
+/* [data-state] lifts specificity over dialog.module.css's own .content rule. */
+.dialogContent[data-state] {
+  overflow: hidden;
+  padding: 0;
+  box-shadow: var(--shadow-popover);
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid hsl(var(--border));
+  padding-left: var(--s12);
+  padding-right: var(--s12);
+}
+
+.inputIcon {
+  margin-right: var(--s8);
+  height: 1rem;
+  width: 1rem;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.input {
+  display: flex;
+  height: 2.75rem;
+  width: 100%;
+  border-radius: var(--radius-md);
+  background: transparent;
+  padding-top: var(--s12);
+  padding-bottom: var(--s12);
+  font-size: var(--fs14);
+  outline: none;
+}
+
+.input::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.list {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.empty {
+  padding-top: var(--s24);
+  padding-bottom: var(--s24);
+  text-align: center;
+  font-size: var(--fs14);
+}
+
+.group {
+  overflow: hidden;
+  padding: var(--s4);
+  color: hsl(var(--foreground));
+}
+
+.group [cmdk-group-heading] {
+  padding: var(--s6) var(--s8);
+  font-size: var(--fs12);
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+}
+
+.separator {
+  margin-left: calc(var(--s4) * -1);
+  margin-right: calc(var(--s4) * -1);
+  height: 1px;
+  background: hsl(var(--border));
+}
+
+.item {
+  position: relative;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  padding: var(--s6) var(--s8);
+  font-size: var(--fs14);
+  outline: none;
+}
+
+.item[data-selected="true"] {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.item[data-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.shortcut {
+  margin-left: auto;
+  font-size: var(--fs12);
+  letter-spacing: 0.1em;
+  color: hsl(var(--muted-foreground));
+}
+
+/*
+ * Dialog-hosted palette: roomier rows and a taller input. These must stay last —
+ * they tie with .group's rules on specificity and win only on source order.
+ */
+.dialogCommand [cmdk-group-heading] {
+  padding-left: var(--s8);
+  padding-right: var(--s8);
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+}
+
+.dialogCommand [cmdk-group]:not([hidden]) ~ [cmdk-group] {
+  padding-top: 0;
+}
+
+.dialogCommand [cmdk-group] {
+  padding-left: var(--s8);
+  padding-right: var(--s8);
+}
+
+.dialogCommand [cmdk-input-wrapper] svg {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.dialogCommand [cmdk-input] {
+  height: 3rem;
+}
+
+.dialogCommand [cmdk-item] {
+  padding: var(--s12) var(--s8);
+}
+
+.dialogCommand [cmdk-item] svg {
+  height: 1.25rem;
+  width: 1.25rem;
+}

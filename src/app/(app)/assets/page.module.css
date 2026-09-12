@@ -1,0 +1,5 @@
+.sub {
+  margin-top: 2px;
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}

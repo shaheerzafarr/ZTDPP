@@ -1,0 +1,62 @@
+.root {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: var(--s12);
+  padding-top: var(--s4);
+  padding-bottom: var(--s4);
+}
+
+.avatarWrapper {
+  position: relative;
+}
+
+.avatar {
+  display: flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: var(--slate);
+  color: var(--white);
+  font-size: var(--fs12);
+  font-weight: 500;
+}
+
+.crown {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  color: var(--yellow-1);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  overflow: hidden;
+  color: hsl(var(--foreground));
+  font-size: var(--fs14);
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jobs {
+  color: hsl(var(--muted-foreground));
+  font-size: var(--fs12);
+}
+
+.rating {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--s4);
+  color: var(--gold-500);
+  font-size: var(--fs12);
+  font-weight: 500;
+}

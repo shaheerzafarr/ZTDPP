@@ -1,0 +1,70 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s4);
+  padding: var(--s6) var(--s12);
+  border-radius: 0;
+  border: 1px solid hsl(var(--input));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: var(--fs14);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.navButton:hover {
+  background: hsl(var(--muted));
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+}
+
+.navIcon {
+  width: var(--s16);
+  height: var(--s16);
+}
+
+.ellipsis {
+  padding: var(--s6) var(--s8);
+  color: hsl(var(--muted-foreground));
+}
+
+.pageButton {
+  padding: var(--s6) var(--s12);
+  border-radius: 0;
+  border: 1px solid hsl(var(--input));
+  background: hsl(var(--background));
+  font-size: var(--fs14);
+  color: var(--Black);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.pageButton:hover {
+  background: hsl(var(--muted));
+}
+
+.pageButtonActive {
+  background: hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.pageButtonActive:hover {
+  background: hsl(var(--primary));
+}

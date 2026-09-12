@@ -1,0 +1,66 @@
+.panelGroup {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.panelGroup[data-panel-group-direction="vertical"] {
+  flex-direction: column;
+}
+
+.handle {
+  position: relative;
+  display: flex;
+  width: 1px;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--border));
+}
+
+.handle::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--s4);
+  transform: translateX(-50%);
+}
+
+.handle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 1px hsl(var(--background)), 0 0 0 2px hsl(var(--ring));
+}
+
+.handle[data-panel-group-direction="vertical"] {
+  height: 1px;
+  width: 100%;
+}
+
+.handle[data-panel-group-direction="vertical"]::after {
+  left: 0;
+  height: var(--s4);
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.handle[data-panel-group-direction="vertical"] > div {
+  transform: rotate(90deg);
+}
+
+.grip {
+  z-index: 10;
+  display: flex;
+  height: var(--s16);
+  width: var(--s12);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--border));
+}
+
+.gripIcon {
+  height: var(--s10);
+  width: var(--s10);
+}

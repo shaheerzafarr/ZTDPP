@@ -1,0 +1,154 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--s20);
+  align-items: start;
+}
+
+.formStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+}
+
+.field {
+  min-width: 0;
+}
+
+.hint {
+  margin: var(--s4) 0 0;
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.hint code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs12);
+  color: hsl(var(--foreground));
+}
+
+.saveBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s12);
+  margin-top: var(--s16);
+  padding-top: var(--s16);
+  border-top: 1px solid hsl(var(--border) / 0.7);
+}
+
+.error {
+  font-size: var(--fs12);
+  font-weight: 500;
+  color: hsl(var(--destructive));
+}
+
+/* trust weight split bar */
+.splitBar {
+  display: flex;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: hsl(var(--muted));
+  gap: 2px;
+}
+
+.splitMeta {
+  height: 100%;
+  background: hsl(var(--primary));
+  transition: width 0.2s ease;
+}
+
+.splitAi {
+  height: 100%;
+  background: var(--info);
+  transition: width 0.2s ease;
+}
+
+.splitLegend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s12);
+  margin: var(--s8) 0 var(--s16);
+  font-size: var(--fs13);
+  color: hsl(var(--muted-foreground));
+}
+
+.splitLegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s6);
+}
+
+.dotMeta,
+.dotAi {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.dotMeta {
+  background: hsl(var(--primary));
+}
+
+.dotAi {
+  background: var(--info);
+}
+
+/* verdict bands */
+.bands {
+  display: flex;
+  height: 12px;
+  gap: 2px;
+  margin-bottom: var(--s16);
+  overflow: hidden;
+  border-radius: 999px;
+  background: hsl(var(--muted));
+}
+
+.bands span {
+  height: 100%;
+  transition: width 0.2s ease;
+}
+
+.bandUntrusted {
+  background: var(--danger);
+}
+
+.bandSuspicious {
+  background: var(--warning);
+}
+
+.bandLikely {
+  background: var(--info);
+}
+
+.bandTrusted {
+  background: var(--success);
+}
+
+/* AI health */
+.healthPanel {
+  margin-bottom: var(--s16);
+  padding: var(--s12) var(--s14);
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--success-border);
+  background: var(--success-bg);
+}
+
+.healthPanel[data-ok="false"] {
+  border-color: var(--danger-border);
+  background: var(--danger-bg);
+}
+
+.healthDetail {
+  margin-top: var(--s12);
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

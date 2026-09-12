@@ -1,0 +1,256 @@
+@import "../styles/typography.css";
+@import "../styles/color.css";
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* Default border colour, so rules may set only border-width. */
+  border-color: hsl(var(--border));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-inter), "Rubik", ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--fs16);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-jakarta), var(--font-inter), ui-sans-serif, sans-serif;
+  letter-spacing: -0.011em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background-color: var(--brand-200);
+  color: var(--brand-900);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* Arabic text + RTL surfaces use the Arabic font stack */
+[dir="rtl"] body,
+.font-arabic {
+  font-family: var(--font-tajawal), var(--font-inter), sans-serif;
+}
+
+/* ---------- Shared helpers ---------- */
+
+.containerFluid {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+  padding-inline: var(--s40);
+}
+
+@media (width > 1520px) {
+  .containerFluid {
+    max-width: 1440px;
+    margin-inline: auto;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.labelText {
+  color: hsl(var(--foreground));
+  font-size: var(--fs14);
+  font-weight: 500;
+}
+
+.required {
+  color: var(--error);
+}
+
+.errorText {
+  color: var(--error);
+  font-size: var(--fs12);
+  margin-top: var(--s4);
+}
+
+/* ---------- Typography scale ---------- */
+
+.text-display {
+  font-weight: 500;
+  font-size: 64.9px;
+  letter-spacing: 16.87px;
+}
+
+.text-h1 {
+  font-weight: 500;
+  font-size: 48.8px;
+  letter-spacing: 7.32px;
+}
+
+.text-h2 {
+  font-weight: 500;
+  font-size: 32.85px;
+  letter-spacing: 7.32px;
+}
+
+/* ---------- Scrollbars ---------- */
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: var(--radius-pill);
+}
+
+.scrollbar-pill {
+  scrollbar-width: thin;
+  scrollbar-color: #023895 #023895;
+}
+
+.scrollbar-pill::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-pill::-webkit-scrollbar-track,
+.scrollbar-pill::-webkit-scrollbar-thumb {
+  background: #023895;
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- Animations ---------- */
+
+@keyframes ulfa-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: ulfa-fade-in 0.25s ease-out both;
+}
+
+@keyframes ulfa-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: ulfa-scale-in 0.18s ease-out both;
+}
+
+/* ---------- Textures ---------- */
+
+.auth-wave-texture {
+  position: relative;
+  background-color: hsl(var(--sidebar-background));
+  background-image: url("/hero-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.auth-wave-texture > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar-texture {
+  position: relative;
+  background-color: hsl(var(--sidebar-background));
+  background-image:
+    radial-gradient(
+      circle at 118% 16%,
+      transparent 0 27%,
+      hsl(var(--sidebar-foreground) / 0.05) 27% 33%,
+      transparent 33% 100%
+    ),
+    radial-gradient(
+      circle at 120% 44%,
+      transparent 0 31%,
+      hsl(var(--sidebar-foreground) / 0.045) 31% 37%,
+      transparent 37% 100%
+    ),
+    radial-gradient(
+      circle at 114% 73%,
+      transparent 0 36%,
+      hsl(var(--sidebar-foreground) / 0.04) 36% 42%,
+      transparent 42% 100%
+    ),
+    radial-gradient(
+      circle at 108% 100%,
+      transparent 0 41%,
+      hsl(var(--sidebar-foreground) / 0.035) 41% 47%,
+      transparent 47% 100%
+    );
+  background-repeat: no-repeat;
+}
+
+.sidebar-texture::before {
+  content: "";
+  position: absolute;
+  inset: 72px 0 auto 0;
+  height: 180px;
+  background: linear-gradient(
+    160deg,
+    transparent 0 35%,
+    hsl(var(--sidebar-foreground) / 0.03) 35% 48%,
+    transparent 48% 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sidebar-texture > * {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,85 @@
+.halfGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--s20);
+}
+
+.distList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s12);
+}
+
+.distRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s6) var(--s12);
+}
+
+.distLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+  min-width: 0;
+}
+
+.distMeta {
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+  white-space: nowrap;
+}
+
+.distMeta strong {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+
+.distBar {
+  grid-column: 1 / -1;
+}
+
+.warning {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s10);
+  margin-bottom: var(--s16);
+  padding: var(--s10) var(--s12);
+  border-radius: var(--radius-btn);
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  color: var(--warning);
+  font-size: var(--fs13);
+  font-weight: 500;
+}
+
+.warning svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.warning code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs12);
+}
+
+.inlineRow {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s8);
+}
+
+.blockIndex {
+  font-weight: 600;
+  font-size: var(--fs13);
+}
+
+@media (min-width: 1024px) {
+  .halfGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,73 @@
+.sub {
+  margin-top: 2px;
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.miniStats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s12);
+  margin-top: var(--s20);
+}
+
+.miniStat {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+  padding: var(--s12) var(--s14);
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: hsl(var(--card));
+}
+
+.miniIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--s32);
+  height: var(--s32);
+  border-radius: 10px;
+  background: hsl(var(--primary) / 0.12);
+  color: hsl(var(--primary));
+  flex-shrink: 0;
+}
+
+.miniValue {
+  font-size: var(--fs18);
+  font-weight: 700;
+  line-height: 1.1;
+  color: hsl(var(--foreground));
+}
+
+.miniLabel {
+  margin-top: 2px;
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.subheading {
+  margin: var(--s20) 0 var(--s10);
+  font-size: var(--fs13);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: hsl(var(--muted-foreground));
+}
+
+.modalMuted {
+  margin: var(--s16) 0 0;
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+}
+
+.errorCount {
+  font-weight: 600;
+  color: var(--danger);
+}
+
+@media (min-width: 640px) {
+  .miniStats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,274 @@
+/* Sheet — edge-anchored dialog. Side is driven by [data-side] on .content. */
+
+@keyframes sheetOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheetOverlayOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sheetInFromTop {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sheetOutToTop {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes sheetInFromBottom {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sheetOutToBottom {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes sheetInFromLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sheetOutToLeft {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes sheetInFromRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sheetOutToRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.overlay[data-state="open"] {
+  animation: sheetOverlayIn 150ms ease-out;
+}
+
+.overlay[data-state="closed"] {
+  animation: sheetOverlayOut 150ms ease-in;
+}
+
+.content {
+  position: fixed;
+  z-index: 50;
+  gap: var(--s16);
+  background: hsl(var(--background));
+  padding: var(--s24);
+  box-shadow: var(--shadow-popover);
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+
+.content[data-state="open"] {
+  animation-duration: 500ms;
+}
+
+.content[data-state="closed"] {
+  animation-duration: 300ms;
+}
+
+.content[data-side="top"] {
+  left: 0;
+  right: 0;
+  top: 0;
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.content[data-side="top"][data-state="open"] {
+  animation-name: sheetInFromTop;
+}
+
+.content[data-side="top"][data-state="closed"] {
+  animation-name: sheetOutToTop;
+}
+
+.content[data-side="bottom"] {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 1px solid hsl(var(--border));
+}
+
+.content[data-side="bottom"][data-state="open"] {
+  animation-name: sheetInFromBottom;
+}
+
+.content[data-side="bottom"][data-state="closed"] {
+  animation-name: sheetOutToBottom;
+}
+
+.content[data-side="left"] {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 75%;
+  border-right: 1px solid hsl(var(--border));
+}
+
+.content[data-side="left"][data-state="open"] {
+  animation-name: sheetInFromLeft;
+}
+
+.content[data-side="left"][data-state="closed"] {
+  animation-name: sheetOutToLeft;
+}
+
+.content[data-side="right"] {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 75%;
+  border-left: 1px solid hsl(var(--border));
+}
+
+.content[data-side="right"][data-state="open"] {
+  animation-name: sheetInFromRight;
+}
+
+.content[data-side="right"][data-state="closed"] {
+  animation-name: sheetOutToRight;
+}
+
+.close {
+  position: absolute;
+  right: var(--s16);
+  top: var(--s16);
+  border-radius: var(--radius-sm);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+.close:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
+}
+
+.close:disabled {
+  pointer-events: none;
+}
+
+.close[data-state="open"] {
+  background: hsl(var(--secondary));
+}
+
+.closeIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.title {
+  font-size: var(--fs18);
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.description {
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+}
+
+@media (min-width: 640px) {
+  .content[data-side="left"],
+  .content[data-side="right"] {
+    max-width: 24rem;
+  }
+
+  .header {
+    text-align: left;
+  }
+
+  .footer {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--s8);
+  }
+}

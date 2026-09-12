@@ -1,0 +1,17 @@
+.placeholder {
+  padding-top: var(--s32);
+  padding-bottom: var(--s32);
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+}
+
+.text {
+  font-size: var(--fs14);
+}
+
+.actions {
+  margin-top: var(--s16);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s12);
+}

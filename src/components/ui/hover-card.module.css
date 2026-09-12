@@ -1,0 +1,93 @@
+/* HoverCard — fade + zoom enter, offset by the side Radix resolved it to. */
+
+@keyframes hoverCardInFromTop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -0.5rem, 0) scale3d(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes hoverCardInFromBottom {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.5rem, 0) scale3d(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes hoverCardInFromLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-0.5rem, 0, 0) scale3d(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes hoverCardInFromRight {
+  from {
+    opacity: 0;
+    transform: translate3d(0.5rem, 0, 0) scale3d(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes hoverCardOut {
+  from {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    opacity: 0;
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+
+.content {
+  z-index: 50;
+  width: 16rem;
+  border-radius: var(--radius-md);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--popover));
+  padding: var(--s16);
+  color: hsl(var(--popover-foreground));
+  box-shadow: var(--shadow-popover);
+  outline: none;
+}
+
+.content[data-state="open"] {
+  animation-duration: 150ms;
+  animation-timing-function: ease-out;
+}
+
+.content[data-state="closed"] {
+  animation: hoverCardOut 150ms ease-in;
+}
+
+.content[data-state="open"][data-side="bottom"] {
+  animation-name: hoverCardInFromTop;
+}
+
+.content[data-state="open"][data-side="top"] {
+  animation-name: hoverCardInFromBottom;
+}
+
+.content[data-state="open"][data-side="right"] {
+  animation-name: hoverCardInFromLeft;
+}
+
+.content[data-state="open"][data-side="left"] {
+  animation-name: hoverCardInFromRight;
+}

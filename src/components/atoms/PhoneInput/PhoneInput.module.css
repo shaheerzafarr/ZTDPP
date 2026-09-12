@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.label {
+  color: hsl(var(--foreground));
+  font-size: var(--fs14);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.required {
+  margin-left: 2px;
+  color: hsl(var(--destructive));
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-btn);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.inputWrapper:focus-within {
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.3);
+}
+
+/* ---------- react-phone-input-2 overrides ---------- */
+
+.inputWrapper :global(.form-control) {
+  height: 100% !important;
+  padding-top: var(--s10) !important;
+  padding-bottom: var(--s10) !important;
+  padding-left: 48px !important;
+  border: none !important;
+  border-radius: var(--radius-btn) !important;
+  background: var(--white) !important;
+  color: hsl(var(--foreground));
+  font-family: inherit !important;
+  font-size: var(--fs14) !important;
+  font-weight: 500 !important;
+}
+
+.inputWrapper :global(.flag-dropdown) {
+  border: none !important;
+  border-right: 1px solid hsl(var(--border)) !important;
+  border-top-left-radius: var(--radius-btn) !important;
+  border-bottom-left-radius: var(--radius-btn) !important;
+  background: var(--white) !important;
+  box-shadow: none !important;
+}
+
+.inputWrapper input {
+  width: 100% !important;
+  border-radius: var(--radius-btn) !important;
+}
+
+.inputWrapper input:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.inputWrapper :global(.selected-flag) {
+  background: transparent !important;
+}
+
+.inputWrapper :global(.selected-flag):hover,
+.inputWrapper :global(.selected-flag.open) {
+  background: hsl(var(--muted) / 0.5) !important;
+}
+
+.errorText {
+  color: hsl(var(--destructive));
+  font-size: var(--fs12);
+}

@@ -1,0 +1,51 @@
+.root {
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--s6) var(--s12);
+  background: #1e293b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.title {
+  font-size: var(--fs11, 11px);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.copy {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s4);
+  border: none;
+  background: transparent;
+  color: #cbd5e1;
+  font-size: var(--fs12);
+  cursor: pointer;
+  padding: 2px var(--s6);
+  border-radius: 6px;
+}
+
+.copy:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pre {
+  margin: 0;
+  padding: var(--s14) var(--s16);
+  overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs12);
+  line-height: 1.6;
+  white-space: pre;
+}

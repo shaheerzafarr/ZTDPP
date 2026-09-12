@@ -1,0 +1,44 @@
+.root {
+  display: grid;
+  gap: var(--s8);
+}
+
+.item {
+  aspect-ratio: 1 / 1;
+  height: var(--s16);
+  width: var(--s16);
+  border: 1px solid hsl(var(--primary));
+  border-radius: var(--radius-pill);
+  background: transparent;
+  padding: 0;
+  color: hsl(var(--primary));
+}
+
+.item:focus {
+  outline: none;
+}
+
+.item:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
+}
+
+.item:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  height: 0.625rem;
+  width: 0.625rem;
+  fill: currentColor;
+  color: currentColor;
+}

@@ -1,0 +1,30 @@
+export const mockInvoices = [
+  {
+    _id: "inv1",
+    invoiceNumber: "INV-001",
+    customer: { firstName: "John", lastName: "Doe" },
+    amount: 120,
+    dueDate: "2024-07-20",
+    issueDate: "2024-07-10",
+    status: "paid",
+    items: [{ description: "Pool Cleaning", quantity: 1, unitPrice: 120 }],
+  },
+  {
+    _id: "inv2",
+    invoiceNumber: "INV-002",
+    customer: { firstName: "Jane", lastName: "Wilson" },
+    amount: 80,
+    dueDate: "2024-07-25",
+    issueDate: "2024-07-11",
+    status: "pending",
+  },
+  {
+    _id: "inv3",
+    invoiceNumber: "INV-003",
+    customer: { firstName: "Bob", lastName: "Johnson" },
+    amount: 200,
+    dueDate: "2024-07-15",
+    issueDate: "2024-07-05",
+    status: "overdue",
+  },
+];

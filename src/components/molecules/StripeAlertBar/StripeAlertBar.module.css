@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s12);
+  margin-bottom: var(--s16);
+  padding: var(--s12) var(--s16);
+  border-radius: var(--radius-lg);
+  background: hsl(var(--destructive));
+  color: var(--white);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.text {
+  font-size: var(--fs14);
+  font-weight: 500;
+}
+
+.link {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.link:hover {
+  opacity: 0.8;
+}

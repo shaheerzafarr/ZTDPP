@@ -1,0 +1,54 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s6);
+  max-width: 100%;
+  border-radius: var(--radius-btn);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--muted) / 0.6);
+  padding: 2px var(--s6) 2px var(--s8);
+}
+
+.full {
+  width: 100%;
+}
+
+.full .code {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.label {
+  font-size: var(--fs10);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: hsl(var(--muted-foreground));
+}
+
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs12);
+  color: hsl(var(--foreground));
+  white-space: nowrap;
+}
+
+.copy {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.copy:hover {
+  color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.1);
+}
+
+.empty {
+  color: hsl(var(--muted-foreground));
+}

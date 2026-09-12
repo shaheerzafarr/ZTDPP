@@ -1,0 +1,126 @@
+/* AlertDialog — overlay + centred content with fade/zoom enter & exit. */
+
+@keyframes alertDialogOverlayIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes alertDialogOverlayOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes alertDialogContentIn {
+  from {
+    opacity: 0;
+    transform: translate3d(-50%, -48%, 0) scale3d(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes alertDialogContentOut {
+  from {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-50%, -48%, 0) scale3d(0.95, 0.95, 0.95);
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.overlay[data-state="open"] {
+  animation: alertDialogOverlayIn 150ms ease-out;
+}
+
+.overlay[data-state="closed"] {
+  animation: alertDialogOverlayOut 150ms ease-in;
+}
+
+.content {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 50;
+  display: grid;
+  width: 100%;
+  max-width: 32rem;
+  transform: translate3d(-50%, -50%, 0);
+  gap: var(--s16);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  padding: var(--s24);
+  box-shadow: var(--shadow-popover);
+}
+
+.content[data-state="open"] {
+  animation: alertDialogContentIn 200ms ease-out;
+}
+
+.content[data-state="closed"] {
+  animation: alertDialogContentOut 200ms ease-in;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.title {
+  font-size: var(--fs18);
+  font-weight: 600;
+}
+
+.description {
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+}
+
+.cancel {
+  margin-top: var(--s8);
+}
+
+@media (min-width: 640px) {
+  .content {
+    border-radius: var(--radius-lg);
+  }
+
+  .header {
+    text-align: left;
+  }
+
+  .footer {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--s8);
+  }
+
+  .cancel {
+    margin-top: 0;
+  }
+}

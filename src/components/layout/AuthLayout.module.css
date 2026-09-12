@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(var(--sidebar-background));
+  color: hsl(var(--foreground));
+}
+
+.inner {
+  width: 100%;
+  max-width: 30rem;
+  padding: var(--s48) var(--s24);
+}
+
+.header {
+  margin-bottom: var(--s24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s16);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+}
+
+.brandMark {
+  display: flex;
+  height: var(--s44);
+  width: var(--s44);
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: var(--shadow-btn);
+}
+
+.brandName {
+  display: block;
+  font-family: var(--font-jakarta), var(--font-inter), sans-serif;
+  font-size: var(--fs20);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: hsl(var(--foreground));
+}
+
+.brandTag {
+  display: block;
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.badge {
+  border-radius: var(--radius-pill);
+  background: hsl(var(--accent) / 0.15);
+  color: var(--gold-700);
+  padding: var(--s4) var(--s12);
+  font-size: var(--fs12);
+  font-weight: 600;
+}
+
+.card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 1rem;
+  padding: var(--s32) var(--s28);
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: var(--s24) var(--s20);
+  }
+}

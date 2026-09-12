@@ -1,0 +1,59 @@
+.root {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+}
+
+.menu {
+  overflow-y: auto;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  box-shadow: var(--shadow-popover);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  padding: var(--s6) var(--s12);
+  border-bottom: 1px solid hsl(var(--border));
+  color: hsl(var(--card-foreground));
+  font-size: var(--fs14);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+.item:hover {
+  background: hsl(var(--muted));
+}
+
+.itemDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}

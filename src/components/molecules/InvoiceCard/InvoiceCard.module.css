@@ -1,0 +1,37 @@
+.root {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--s4);
+  padding-bottom: var(--s4);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.clientName {
+  color: hsl(var(--foreground));
+  font-size: var(--fs14);
+  font-weight: 500;
+}
+
+.dueDate {
+  color: hsl(var(--muted-foreground));
+  font-size: var(--fs12);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--s4);
+}
+
+.total {
+  color: hsl(var(--foreground));
+  font-size: var(--fs14);
+  font-weight: 600;
+}

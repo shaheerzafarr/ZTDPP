@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--s8);
+}
+
+.labelRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  display: block;
+  margin-bottom: var(--s6);
+  color: hsl(var(--muted-foreground));
+  font-size: var(--fs12);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.labelDisabled {
+  opacity: 0.5;
+}
+
+.required {
+  margin-left: 2px;
+  color: hsl(var(--destructive));
+}
+
+.label2 {
+  margin-left: auto;
+  color: hsl(var(--foreground) / 0.8);
+  font-size: var(--fs16);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.textarea {
+  width: 100%;
+  padding: var(--s10) var(--s12);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-btn);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: inherit;
+  font-size: var(--fs14);
+  resize: none;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.textarea::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+.textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.3);
+}
+
+.textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.textareaError {
+  border-color: hsl(var(--destructive));
+}
+
+.textareaError:focus-visible {
+  box-shadow: 0 0 0 2px hsl(var(--destructive) / 0.3);
+}
+
+.errorText {
+  color: hsl(var(--destructive));
+  font-size: var(--fs12);
+}

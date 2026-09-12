@@ -1,0 +1,343 @@
+:root {
+  /* Font-family tokens (used by CSS modules) */
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+
+  --fs96: 96px;
+  --fs64: 64px;
+  --fs60: 60px;
+  --fs58: 58px;
+  --fs56: 56px;
+  --fs52: 52px;
+  --fs48: 48px;
+  --fs44: 44px;
+  --fs42: 42px;
+  --fs40: 40px;
+  --fs38: 38px;
+  --fs36: 36px;
+  --fs32: 32px;
+  --fs28: 28px;
+  --fs24: 24px;
+  --fs22: 22px;
+  --fs20: 20px;
+  --fs18: 18px;
+  --fs16: 16px;
+  --fs15: 15px;
+  --fs14: 14px;
+  --fs13: 13px;
+  --fs12: 12px;
+  --fs10: 10px;
+
+  /* for all other than font size margin, padding, border-radius, etc. */
+  --s4: 4px;
+  --s6: 6px;
+  --s7: 7px;
+  --s8: 8px;
+  --s10: 10px;
+  --s12: 12px;
+  --s13: 13px;
+  --s14: 14px;
+  --s15: 15px;
+  --s16: 16px;
+  --s17: 17px;
+  --s18: 18px;
+  --s20: 20px;
+  --s21: 21px;
+  --s22: 22px;
+  --s24: 24px;
+  --s23: 25px;
+  --s26: 26px;
+  --s28: 28px;
+  --s29: 29px;
+  --s25: 25px;
+  --s30: 30px;
+  --s31: 31px;
+  --s32: 32px;
+  --s34: 34px;
+  --s35: 35px;
+  --s36: 36px;
+  --s37: 37px;
+  --s38: 38px;
+  --s40: 40px;
+  --s41: 41px;
+  --s42: 42px;
+  --s43: 43px;
+  --s44: 44px;
+  --s45: 45px;
+  --s46: 46px;
+  --s48: 48px;
+  --s50: 50px;
+  --s52: 52px;
+  --s54: 54px;
+  --s56: 56px;
+  --s58: 58px;
+  --s64: 64px;
+  --s80: 80px;
+  --s96: 96px;
+  --s100: 100px;
+
+  /* line height */
+  --lh120: 120%;
+  --lh140: 140%;
+  --lh150: 150%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1400px) {
+  :root {
+    --fs96: 90px;
+    --fs64: 60px;
+    --fs60: 55px;
+    --fs58: 53px;
+    --fs56: 50px;
+    --fs52: 47px;
+    --fs48: 42px;
+    --fs44: 40px;
+    --fs42: 38px;
+    --fs40: 36px;
+    --fs38: 34px;
+    --fs32: 28px;
+    --fs28: 25px;
+    --fs24: 21px;
+    --fs20: 18px;
+    --fs18: 16px;
+    --fs16: 15px;
+
+    --s10: 10px;
+    --s12: 11px;
+    --s13: 12px;
+    --s14: 13px;
+    --s15: 14px;
+    --s16: 15px;
+    --s17: 14px;
+    --s18: 17px;
+    --s20: 19px;
+    --s22: 21px;
+    --s24: 22px;
+    --s25: 23px;
+    --s26: 24px;
+    --s28: 25px;
+    --s30: 27px;
+    --s31: 28px;
+    --s32: 29px;
+    --s34: 31px;
+    --s36: 33px;
+    --s37: 34px;
+    --s40: 37px;
+    --s41: 38px;
+    --s44: 40px;
+    --s45: 41px;
+    --s48: 43px;
+    --s50: 45px;
+    --s52: 47px;
+    --s54: 49px;
+    --s56: 51px;
+    --s58: 53px;
+    --s64: 59px;
+    --s80: 70px;
+    --s96: 80px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --fs96: 80px;
+    --fs64: 55px;
+    --fs60: 50px;
+    --fs58: 48px;
+    --fs56: 50px;
+    --fs52: 45px;
+    --fs48: 40px;
+    --fs44: 40px;
+    --fs42: 36px;
+    --fs40: 36px;
+    --fs38: 32px;
+    --fs32: 28px;
+    --fs28: 24px;
+    --fs24: 20px;
+    --fs20: 18px;
+    --fs18: 15px;
+    --fs16: 14px;
+
+    --s10: 10px;
+    --s12: 11px;
+    --s13: 12px;
+    --s14: 12px;
+    --s15: 13px;
+    --s16: 14px;
+    --s17: 14px;
+    --s18: 16px;
+    --s20: 19px;
+    --s22: 20px;
+    --s24: 21px;
+    --s25: 23px;
+    --s26: 22px;
+    --s28: 23px;
+    --s30: 25px;
+    --s31: 26px;
+    --s32: 27px;
+    --s34: 29px;
+    --s36: 31px;
+    --s37: 32px;
+    --s40: 35px;
+    --s41: 36px;
+    --s44: 38px;
+    --s45: 39px;
+    --s48: 41px;
+    --s50: 42px;
+    --s52: 44px;
+    --s54: 46px;
+    --s56: 48px;
+    --s58: 50px;
+    --s64: 54px;
+    --s80: 65px;
+    --s96: 75px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  :root {
+    --fs96: 75px;
+    --fs64: 55px;
+    --fs60: 50px;
+    --fs58: 47px;
+    --fs56: 45px;
+    --fs52: 43px;
+    --fs48: 40px;
+    --fs44: 38px;
+    --fs42: 36px;
+    --fs40: 33px;
+    --fs38: 32px;
+    --fs32: 27px;
+    --fs28: 24px;
+    --fs24: 20px;
+    --fs20: 17px;
+    --fs18: 15px;
+    --fs16: 14px;
+    --fs14: 13px;
+
+    --s4: 3px;
+    --s6: 5px;
+    --s8: 6px;
+    --s10: 8px;
+    --s12: 10px;
+    --s13: 11px;
+    --s14: 12px;
+    --s15: 13px;
+    --s16: 14px;
+    --s17: 15px;
+    --s18: 16px;
+    --s20: 17px;
+    --s22: 18px;
+    --s24: 20px;
+    --s25: 21px;
+    --s26: 22px;
+    --s28: 23px;
+    --s30: 25px;
+    --s31: 26px;
+    --s32: 27px;
+    --s34: 29px;
+    --s36: 31px;
+    --s37: 32px;
+    --s40: 34px;
+    --s41: 35px;
+    --s44: 37px;
+    --s45: 38px;
+    --s48: 40px;
+    --s50: 41px;
+    --s52: 43px;
+    --s54: 45px;
+    --s56: 47px;
+    --s58: 49px;
+    --s64: 53px;
+    --s80: 56px;
+    --s96: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --fs96: 60px;
+    --fs64: 45px;
+    --fs60: 40px;
+    --fs58: 38px;
+    --fs56: 36px;
+    --fs52: 35px;
+    --fs48: 34px;
+    --fs44: 32px;
+    --fs42: 31px;
+    --fs40: 30px;
+    --fs38: 28px;
+    --fs32: 25px;
+    --fs28: 22px;
+    --fs24: 19px;
+    --fs20: 16px;
+    --fs18: 14px;
+    --fs16: 13px;
+    --fs14: 12px;
+    --fs12: 11px;
+
+    --s8: 6px;
+    --s10: 8px;
+    --s12: 9px;
+    --s13: 11px;
+    --s14: 12px;
+    --s15: 13px;
+    --s16: 14px;
+    --s17: 15px;
+    --s18: 16px;
+    --s20: 17px;
+    --s22: 18px;
+    --s24: 19px;
+    --s25: 20px;
+    --s26: 22px;
+    --s28: 23px;
+    --s30: 24px;
+    --s31: 25px;
+    --s32: 26px;
+    --s34: 28px;
+    --s36: 30px;
+    --s37: 31px;
+    --s40: 32px;
+    --s41: 33px;
+    --s44: 35px;
+    --s45: 36px;
+    --s48: 38px;
+    --s50: 40px;
+    --s52: 41px;
+    --s54: 43px;
+    --s56: 45px;
+    --s58: 47px;
+    --s64: 50px;
+    --s80: 45px;
+    --s96: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --fs96: 50px;
+    --fs64: 35px;
+    --fs60: 35px;
+    --fs58: 34px;
+    --fs56: 32px;
+    --fs52: 30px;
+    --fs48: 28px;
+    --fs44: 26px;
+    --fs42: 26px;
+    --fs40: 24px;
+    --fs38: 23px;
+    --fs32: 20px;
+    --fs28: 18px;
+    --fs24: 16px;
+    --fs20: 14px;
+    --fs18: 13px;
+    --fs16: 12px;
+    --fs14: 11px;
+    --fs12: 10px;
+    --fs10: 9px;
+  }
+}

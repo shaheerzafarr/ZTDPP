@@ -1,0 +1,137 @@
+@keyframes appTableSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+}
+
+.card {
+  overflow: visible;
+  border-radius: var(--radius-card);
+  border: 0;
+  background: hsl(var(--card));
+  box-shadow: var(--shadow-card);
+}
+
+.cardContent {
+  padding: 0;
+}
+
+.loaderWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--s64);
+  padding-bottom: var(--s64);
+}
+
+.loader {
+  height: 35vh;
+  width: var(--s32);
+  color: hsl(var(--primary));
+  animation: appTableSpin 1s linear infinite;
+}
+
+.thead {
+  background: hsl(var(--muted) / 0.2);
+}
+
+.dragHead {
+  height: auto;
+  width: var(--s32);
+  padding: var(--s12) var(--s8);
+}
+
+.th {
+  height: auto;
+  padding: var(--s12);
+  font-size: var(--fs12);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--slate);
+  letter-spacing: 0.025em;
+}
+
+.thActions {
+  height: auto;
+  padding: var(--s12);
+  text-align: right;
+  font-size: var(--fs12);
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--slate);
+  letter-spacing: 0.025em;
+}
+
+.row {
+  border-bottom: 1px solid hsl(var(--border));
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.row:hover {
+  background: hsl(var(--primary) / 0.04);
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.rowClickable {
+  cursor: pointer;
+}
+
+.rowDropTarget {
+  border-top: 2px solid hsl(var(--primary));
+}
+
+.rowDragging {
+  opacity: 0.5;
+}
+
+.dragCell {
+  width: var(--s32);
+  padding-left: var(--s8);
+  padding-right: var(--s8);
+  vertical-align: middle;
+}
+
+.dragHandle {
+  width: var(--s16);
+  height: var(--s16);
+  color: hsl(var(--muted-foreground));
+  cursor: grab;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.cell {
+  padding: var(--s12);
+  vertical-align: middle;
+}
+
+.actionsCell {
+  padding: var(--s12);
+  text-align: right;
+  vertical-align: middle;
+}
+
+.actionsInner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--s8);
+}
+
+.emptyCell {
+  padding-top: var(--s48);
+  padding-bottom: var(--s48);
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+}

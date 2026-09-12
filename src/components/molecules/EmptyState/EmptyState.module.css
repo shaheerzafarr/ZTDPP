@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--s8);
+  padding: var(--s48) var(--s24);
+  border: 1px dashed hsl(var(--border));
+  border-radius: 1rem;
+  background: hsl(var(--card));
+}
+
+.compact {
+  padding: var(--s24);
+}
+
+.icon {
+  display: flex;
+  height: var(--s48);
+  width: var(--s48);
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  margin-bottom: var(--s4);
+}
+
+.title {
+  font-size: var(--fs16);
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.description {
+  max-width: 34rem;
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+}
+
+.action {
+  margin-top: var(--s8);
+}

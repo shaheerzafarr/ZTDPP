@@ -1,0 +1,212 @@
+/* Shared page-level layout primitives for ZTDPP screens. Import as `shared`. */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s20);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--s16);
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--s20);
+}
+
+.threeCol {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--s16);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s12);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s8);
+}
+
+.select {
+  height: var(--s40);
+  padding: 0 var(--s12);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-btn);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: inherit;
+  font-size: var(--fs14);
+}
+
+.select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.3);
+}
+
+.searchWrap {
+  min-width: 240px;
+}
+
+.rowActions {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+}
+
+.muted {
+  font-size: var(--fs13);
+  color: hsl(var(--muted-foreground));
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs12);
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s4);
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: var(--fs14);
+  font-weight: 600;
+  color: hsl(var(--primary));
+  cursor: pointer;
+}
+
+.linkButton:hover {
+  text-decoration: underline;
+}
+
+.rowMenuIcon {
+  height: var(--s20);
+  width: var(--s20);
+  color: hsl(var(--muted-foreground));
+  cursor: pointer;
+}
+
+.rowMenuIcon:hover {
+  color: hsl(var(--foreground));
+}
+
+.deleteAction {
+  color: hsl(var(--destructive));
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--s16);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s8);
+  margin-top: var(--s8);
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: var(--s6);
+  color: hsl(var(--muted-foreground));
+  font-size: var(--fs12);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.checkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s10);
+  padding: var(--s10) var(--s12);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+}
+
+.checkItem input {
+  margin-top: 3px;
+}
+
+.checkTitle {
+  font-size: var(--fs14);
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.checkDesc {
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.chartWrap {
+  width: 100%;
+  height: 260px;
+}
+
+.loaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s40);
+  color: hsl(var(--muted-foreground));
+}
+
+.spin {
+  animation: ztd-spin 1s linear infinite;
+}
+
+@keyframes ztd-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .formGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .threeCol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .twoCol {
+    grid-template-columns: 1fr 0.6fr;
+  }
+  .threeCol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

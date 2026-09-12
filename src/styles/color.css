@@ -1,0 +1,203 @@
+/*
+ * Theme tokens.
+ *
+ * Semantic tokens are stored as bare HSL channels ("175 84% 32%") rather than
+ * finished colours, so callers can vary alpha: hsl(var(--primary) / 0.12).
+ * Always wrap them: color: hsl(var(--primary)). The .dark block re-binds the
+ * same names, so any rule built on them themes automatically.
+ */
+
+:root {
+  /* Brand — Teal (trust, generosity) + Gold accent */
+  --color-primary: 175 84% 32%;
+  --color-primary-hover: 175 82% 26%;
+  --color-secondary: 210 40% 96%;
+  --color-dark: 222 47% 11%;
+  --color-text: 222 47% 11%;
+  --color-white: 0 0% 100%;
+  --color-secondary-light: 175 60% 90%;
+
+  /* Semantic surfaces */
+  --background: 200 24% 97%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 175 84% 32%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 38 92% 50%;
+  --accent-foreground: 30 90% 15%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 24% 92%;
+  --input: 214 24% 92%;
+  --ring: 175 84% 32%;
+
+  /* Sidebar — light card surface with teal active states */
+  --sidebar-background: 0 0% 100%;
+  --sidebar-foreground: 222 47% 11%;
+  --sidebar-primary: 175 84% 32%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 175 60% 96%;
+  --sidebar-accent-foreground: 175 82% 26%;
+  --sidebar-border: 214 24% 92%;
+  --sidebar-ring: 175 84% 32%;
+
+  /* Brand scale */
+  --brand-50: #f0fdfa;
+  --brand-100: #ccfbf1;
+  --brand-200: #99f6e4;
+  --brand-300: #5eead4;
+  --brand-400: #2dd4bf;
+  --brand-500: #14b8a6;
+  --brand-600: #0d9488;
+  --brand-700: #0f766e;
+  --brand-800: #115e59;
+  --brand-900: #134e4a;
+
+  /* Gold accent scale */
+  --gold-50: #fffbeb;
+  --gold-100: #fef3c7;
+  --gold-200: #fde68a;
+  --gold-300: #fcd34d;
+  --gold-400: #fbbf24;
+  --gold-500: #f59e0b;
+  --gold-600: #d97706;
+  --gold-700: #b45309;
+
+  /* Status — each with a background and border companion */
+  --success: #16a34a;
+  --success-bg: #ecfdf5;
+  --success-border: #bbf7d0;
+  --warning: #d97706;
+  --warning-bg: #fffbeb;
+  --warning-border: #fde68a;
+  --danger: #dc2626;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+  --info: #2563eb;
+  --info-bg: #eff6ff;
+  --info-border: #bfdbfe;
+
+  /* Button tokens (per design) */
+  --Primary: #364775;
+  --Border-Grey: #dadfe7;
+  --Black: #04242d;
+
+  --error: #f15b5b;
+  --subtle: #94a3b8;
+  --slate: #334155;
+  --dark: #2e2d4f;
+
+  /* Blue Shades */
+  --blue-1: #0891b2;
+  --blue-2: #22d3ee;
+  --blue-3: #cffafe;
+  --blue-4: #d0e8fe;
+  --blue-5: #e2f1ff;
+  --blue-6: #c8d9e9;
+  --blue-7: #fafafb;
+  --blue-4-o10: rgba(208, 232, 254, 0.1);
+  --blue-4-o50: rgba(208, 232, 254, 0.5);
+
+  /* Black Shades */
+  --black: #000000;
+  --black-1: #1e1e1e;
+  --black-2: #454545;
+  --black-o10: rgba(0, 0, 0, 0.1);
+  --black-o28: rgba(30, 30, 30, 0.16);
+
+  /* White Shades */
+  --white: #ffffff;
+  --white-1: #eff7ff;
+  --white-2: #f9f9f9;
+  --white-3: #f8fcfe;
+  --white-4: #f8f8f8;
+
+  /* Yellow / Orange Shades */
+  --yellow-1: #fcb630;
+  --orange-1: #f79009;
+
+  /* Gray Shades */
+  --gray-1: #696969;
+  --gray-2: #656565;
+  --gray-3: #dddddd;
+  --gray-4: #d1d1d1;
+  --gray-5: #dadfe7;
+  --gray-6: #e5e5e5;
+  --gray-7: #9a9ea6;
+  --gray-o42: rgba(105, 105, 105, 0.42);
+
+  /* Semantic aliases — resolve to the themed tokens above */
+  --border-color: hsl(var(--border));
+  --border-light: hsl(var(--border));
+  --border-muted: hsl(var(--border));
+  --placeholder: hsl(var(--muted-foreground));
+  --disabled-bg: hsl(var(--muted));
+  --disabled-text: hsl(var(--muted-foreground));
+  --dark-indigo: hsl(var(--foreground));
+  --steel-grey: hsl(var(--muted-foreground));
+  --background-soft: hsl(var(--secondary));
+  --background-light: hsl(var(--muted));
+  --text-muted: hsl(var(--muted-foreground));
+  --off-white: hsl(var(--muted));
+  --purple-soft: hsl(var(--primary));
+  --purple-light: hsl(var(--secondary));
+
+  /* Radii */
+  --radius: 0.5rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: 97px;
+  --radius-card: 32px;
+  --radius-btn: 8px;
+  --radius-icon: 50%;
+  --radius-pill: 9999px;
+
+  /* Elevation */
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-btn: 0 2px 8px rgba(13, 148, 136, 0.18);
+  --shadow-popover: 0 4px 24px rgba(2, 56, 149, 0.1);
+
+  --spacing-base: 8px;
+
+  /* Scrollbar */
+  --scrollbar-thumb: hsl(var(--border));
+  --scrollbar-track: transparent;
+}
+
+.dark {
+  --background: 220 25% 8%;
+  --foreground: 210 20% 95%;
+  --card: 220 25% 11%;
+  --card-foreground: 210 20% 95%;
+  --popover: 220 25% 11%;
+  --popover-foreground: 210 20% 95%;
+  --primary: 172 66% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 20% 18%;
+  --secondary-foreground: 210 20% 95%;
+  --muted: 220 20% 15%;
+  --muted-foreground: 215 15% 60%;
+  --accent: 38 92% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62% 45%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 20% 18%;
+  --input: 220 20% 18%;
+  --ring: 172 66% 40%;
+  --sidebar-background: 220 25% 11%;
+  --sidebar-foreground: 210 15% 85%;
+  --sidebar-primary: 172 66% 40%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 220 20% 18%;
+  --sidebar-accent-foreground: 210 15% 85%;
+  --sidebar-border: 220 20% 18%;
+  --sidebar-ring: 172 66% 40%;
+}

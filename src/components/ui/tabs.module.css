@@ -1,0 +1,47 @@
+.list {
+  display: inline-flex;
+  height: var(--s40);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: hsl(var(--muted));
+  padding: var(--s4);
+  color: hsl(var(--muted-foreground));
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  padding: var(--s6) var(--s12);
+  font-size: var(--fs14);
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.trigger[data-state="active"] {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  box-shadow: var(--shadow-card);
+}
+
+.trigger:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+}
+
+.trigger:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.content {
+  margin-top: var(--s8);
+}
+
+.content:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+}

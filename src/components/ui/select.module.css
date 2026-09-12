@@ -1,0 +1,232 @@
+.trigger {
+  display: flex;
+  height: var(--s40);
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius-md);
+  background: hsl(var(--background));
+  padding: var(--s8) var(--s12);
+  color: hsl(var(--foreground));
+  font-family: inherit;
+  font-size: var(--fs14);
+}
+
+.trigger > span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.trigger[data-placeholder] {
+  color: hsl(var(--muted-foreground));
+}
+
+.trigger:focus {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
+}
+
+.trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.triggerIcon {
+  height: var(--s16);
+  width: var(--s16);
+  opacity: 0.5;
+}
+
+/* ---------- Scroll buttons ---------- */
+
+.scrollButton {
+  display: flex;
+  cursor: default;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--s4);
+  padding-bottom: var(--s4);
+}
+
+.scrollButtonIcon {
+  height: var(--s16);
+  width: var(--s16);
+}
+
+/* ---------- Content ---------- */
+
+.content {
+  position: relative;
+  z-index: 50;
+  max-height: 384px;
+  min-width: 8rem;
+  overflow: hidden;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  box-shadow: var(--shadow-popover);
+}
+
+/* Enter: fade in + zoom in from 95% + slide in 8px from the trigger side. */
+.content[data-state="open"][data-side="bottom"] {
+  animation: selectEnterFromTop 150ms ease-out;
+}
+
+.content[data-state="open"][data-side="top"] {
+  animation: selectEnterFromBottom 150ms ease-out;
+}
+
+.content[data-state="open"][data-side="left"] {
+  animation: selectEnterFromRight 150ms ease-out;
+}
+
+.content[data-state="open"][data-side="right"] {
+  animation: selectEnterFromLeft 150ms ease-out;
+}
+
+/* Exit: fade out + zoom out to 95%. */
+.content[data-state="closed"] {
+  animation: selectExit 150ms ease-in;
+}
+
+@keyframes selectEnterFromTop {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes selectEnterFromBottom {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes selectEnterFromLeft {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes selectEnterFromRight {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes selectExit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* position="popper" nudges the panel 4px away from the trigger. */
+.contentPopper[data-side="bottom"] {
+  transform: translateY(var(--s4));
+}
+
+.contentPopper[data-side="top"] {
+  transform: translateY(calc(var(--s4) * -1));
+}
+
+.contentPopper[data-side="left"] {
+  transform: translateX(calc(var(--s4) * -1));
+}
+
+.contentPopper[data-side="right"] {
+  transform: translateX(var(--s4));
+}
+
+/* ---------- Viewport ---------- */
+
+.viewport {
+  padding: var(--s4);
+}
+
+.viewportPopper {
+  height: var(--radix-select-trigger-height);
+  width: 100%;
+  min-width: var(--radix-select-trigger-width);
+}
+
+/* ---------- Label / Item / Separator ---------- */
+
+.label {
+  padding: var(--s6) var(--s8) var(--s6) var(--s32);
+  font-size: var(--fs14);
+  font-weight: 600;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  width: 100%;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  padding: var(--s6) var(--s8) var(--s6) var(--s32);
+  font-size: var(--fs14);
+  outline: none;
+}
+
+.item[data-disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.item:focus {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.itemIndicator {
+  position: absolute;
+  left: var(--s8);
+  display: flex;
+  height: 0.875rem;
+  width: 0.875rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemIndicatorIcon {
+  height: var(--s16);
+  width: var(--s16);
+}
+
+.separator {
+  margin: var(--s4) calc(var(--s4) * -1);
+  height: 1px;
+  background: hsl(var(--muted));
+}

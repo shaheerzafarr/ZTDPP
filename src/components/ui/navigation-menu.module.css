@@ -1,0 +1,255 @@
+/* NavigationMenu — motion-driven panels sliding through a shared viewport. */
+
+@keyframes navMenuInFromRight {
+  from {
+    opacity: 0;
+    transform: translate3d(13rem, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes navMenuInFromLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-13rem, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes navMenuOutToRight {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(13rem, 0, 0);
+  }
+}
+
+@keyframes navMenuOutToLeft {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-13rem, 0, 0);
+  }
+}
+
+@keyframes navMenuViewportIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes navMenuViewportOut {
+  from {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    opacity: 0;
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+
+@keyframes navMenuFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes navMenuFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.root {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  max-width: max-content;
+  flex: 1 1 0%;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  flex: 1 1 0%;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s4);
+}
+
+.trigger {
+  display: inline-flex;
+  height: var(--s40);
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: hsl(var(--background));
+  padding: var(--s8) var(--s16);
+  font-size: var(--fs14);
+  font-weight: 500;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.trigger:hover {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.trigger:focus {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  outline: none;
+}
+
+.trigger:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.trigger[data-active] {
+  background: hsl(var(--accent) / 0.5);
+}
+
+.trigger[data-state="open"] {
+  background: hsl(var(--accent) / 0.5);
+}
+
+.triggerIcon {
+  position: relative;
+  top: 1px;
+  margin-left: var(--s4);
+  height: 0.75rem;
+  width: 0.75rem;
+  transition: transform 200ms;
+}
+
+.trigger[data-state="open"] .triggerIcon {
+  transform: rotate(180deg);
+}
+
+.content {
+  left: 0;
+  top: 0;
+  width: 100%;
+  animation-duration: 150ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+.content[data-motion="from-start"] {
+  animation-name: navMenuInFromLeft;
+}
+
+.content[data-motion="from-end"] {
+  animation-name: navMenuInFromRight;
+}
+
+.content[data-motion="to-start"] {
+  animation-name: navMenuOutToLeft;
+  animation-timing-function: ease-in;
+}
+
+.content[data-motion="to-end"] {
+  animation-name: navMenuOutToRight;
+  animation-timing-function: ease-in;
+}
+
+.viewportWrapper {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.viewport {
+  transform-origin: top center;
+  position: relative;
+  margin-top: var(--s6);
+  height: var(--radix-navigation-menu-viewport-height);
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  box-shadow: var(--shadow-popover);
+}
+
+.viewport[data-state="open"] {
+  animation: navMenuViewportIn 150ms ease-out;
+}
+
+.viewport[data-state="closed"] {
+  animation: navMenuViewportOut 150ms ease-in;
+}
+
+.indicator {
+  top: 100%;
+  z-index: 1;
+  display: flex;
+  height: 0.375rem;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.indicator[data-state="visible"] {
+  animation: navMenuFadeIn 150ms ease-out;
+}
+
+.indicator[data-state="hidden"] {
+  animation: navMenuFadeOut 150ms ease-in;
+}
+
+.indicatorArrow {
+  position: relative;
+  top: 60%;
+  height: var(--s8);
+  width: var(--s8);
+  transform: rotate(45deg);
+  border-top-left-radius: var(--radius-sm);
+  background: hsl(var(--border));
+  box-shadow: var(--shadow-popover);
+}
+
+@media (min-width: 768px) {
+  .content {
+    position: absolute;
+    width: auto;
+  }
+
+  .viewport {
+    width: var(--radix-navigation-menu-viewport-width);
+  }
+}

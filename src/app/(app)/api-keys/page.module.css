@@ -1,0 +1,30 @@
+.sub {
+  margin-top: 2px;
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.scopes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4);
+}
+
+.error {
+  margin-top: var(--s8);
+  font-size: var(--fs12);
+  color: hsl(var(--destructive));
+}
+
+.revealWarning {
+  display: flex;
+  align-items: center;
+  gap: var(--s10);
+  padding: var(--s10) var(--s12);
+  border-radius: var(--radius-btn);
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  color: var(--warning);
+  font-size: var(--fs13);
+  font-weight: 500;
+}

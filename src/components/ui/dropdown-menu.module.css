@@ -1,0 +1,235 @@
+/* DropdownMenu — popover surface + menu rows. */
+
+@keyframes dropdownMenuInFromTop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -0.5rem, 0) scale3d(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes dropdownMenuInFromBottom {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.5rem, 0) scale3d(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes dropdownMenuInFromLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-0.5rem, 0, 0) scale3d(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes dropdownMenuInFromRight {
+  from {
+    opacity: 0;
+    transform: translate3d(0.5rem, 0, 0) scale3d(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+  }
+}
+
+@keyframes dropdownMenuOut {
+  from {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  to {
+    opacity: 0;
+    transform: scale3d(0.95, 0.95, 0.95);
+  }
+}
+
+.subTrigger {
+  display: flex;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  padding: var(--s6) var(--s8);
+  font-size: var(--fs14);
+  outline: none;
+}
+
+.subTrigger:focus {
+  background: hsl(var(--accent));
+}
+
+.subTrigger[data-state="open"] {
+  background: hsl(var(--accent));
+}
+
+.subTriggerIcon {
+  margin-left: auto;
+  height: 1rem;
+  width: 1rem;
+}
+
+.subContent {
+  z-index: 50;
+  min-width: 8rem;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--popover));
+  padding: var(--s4);
+  color: hsl(var(--popover-foreground));
+  box-shadow: var(--shadow-popover);
+}
+
+.subContent[data-state="open"],
+.content[data-state="open"] {
+  animation-duration: 150ms;
+  animation-timing-function: ease-out;
+}
+
+.subContent[data-state="closed"],
+.content[data-state="closed"] {
+  animation: dropdownMenuOut 150ms ease-in;
+}
+
+.subContent[data-state="open"][data-side="bottom"],
+.content[data-state="open"][data-side="bottom"] {
+  animation-name: dropdownMenuInFromTop;
+}
+
+.subContent[data-state="open"][data-side="top"],
+.content[data-state="open"][data-side="top"] {
+  animation-name: dropdownMenuInFromBottom;
+}
+
+.subContent[data-state="open"][data-side="right"],
+.content[data-state="open"][data-side="right"] {
+  animation-name: dropdownMenuInFromLeft;
+}
+
+.subContent[data-state="open"][data-side="left"],
+.content[data-state="open"][data-side="left"] {
+  animation-name: dropdownMenuInFromRight;
+}
+
+.content {
+  z-index: 50;
+  min-width: 8rem;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--popover));
+  padding: var(--s4);
+  color: hsl(var(--popover-foreground));
+  box-shadow: var(--shadow-popover);
+}
+
+.item {
+  position: relative;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  padding: var(--s6) var(--s8);
+  font-size: var(--fs14);
+  outline: none;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.item:focus {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.item[data-disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.checkboxItem,
+.radioItem {
+  position: relative;
+  display: flex;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  padding: var(--s6) var(--s8) var(--s6) var(--s32);
+  font-size: var(--fs14);
+  outline: none;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.checkboxItem:focus,
+.radioItem:focus {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.checkboxItem[data-disabled],
+.radioItem[data-disabled] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.itemIndicator {
+  position: absolute;
+  left: var(--s8);
+  display: flex;
+  height: 0.875rem;
+  width: 0.875rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIcon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.circleIcon {
+  height: 0.5rem;
+  width: 0.5rem;
+  fill: currentColor;
+}
+
+.label {
+  padding: var(--s6) var(--s8);
+  font-size: var(--fs14);
+  font-weight: 600;
+}
+
+.inset {
+  padding-left: var(--s32);
+}
+
+.separator {
+  margin: var(--s4) calc(var(--s4) * -1);
+  height: 1px;
+  background: hsl(var(--muted));
+}
+
+.shortcut {
+  margin-left: auto;
+  font-size: var(--fs12);
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}

@@ -1,0 +1,55 @@
+.alert {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid hsl(var(--border));
+  padding: var(--s16);
+}
+
+.alert > svg {
+  position: absolute;
+  left: var(--s16);
+  top: var(--s16);
+  color: hsl(var(--foreground));
+}
+
+.alert > svg ~ * {
+  padding-left: var(--s28);
+}
+
+.alert > svg + div {
+  transform: translateY(-3px);
+}
+
+.alert[data-variant="default"] {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.alert[data-variant="destructive"] {
+  border-color: hsl(var(--destructive) / 0.5);
+  color: hsl(var(--destructive));
+}
+
+:global(.dark) .alert[data-variant="destructive"] {
+  border-color: hsl(var(--destructive));
+}
+
+.alert[data-variant="destructive"] > svg {
+  color: hsl(var(--destructive));
+}
+
+.title {
+  margin-bottom: var(--s4);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.description {
+  font-size: var(--fs14);
+}
+
+.description p {
+  line-height: 1.625;
+}

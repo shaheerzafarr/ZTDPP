@@ -1,0 +1,65 @@
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s6);
+  overflow-wrap: break-word;
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s6);
+}
+
+.link {
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.link:hover {
+  color: hsl(var(--foreground));
+}
+
+.page {
+  font-weight: 400;
+  color: hsl(var(--foreground));
+}
+
+.separator > svg {
+  width: var(--s14);
+  height: var(--s14);
+}
+
+.ellipsis {
+  display: flex;
+  height: var(--s36);
+  width: var(--s36);
+  align-items: center;
+  justify-content: center;
+}
+
+.ellipsisIcon {
+  height: var(--s16);
+  width: var(--s16);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 640px) {
+  .list {
+    gap: var(--s10);
+  }
+}

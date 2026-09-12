@@ -1,0 +1,56 @@
+.switch {
+  display: inline-flex;
+  height: var(--s24);
+  width: var(--s44);
+  flex-shrink: 0;
+  cursor: pointer;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 0;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.switch[data-state="checked"] {
+  background: hsl(var(--primary));
+}
+
+.switch[data-state="unchecked"] {
+  background: hsl(var(--input));
+}
+
+.switch:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
+}
+
+.switch:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.thumb {
+  pointer-events: none;
+  display: block;
+  height: var(--s20);
+  width: var(--s20);
+  border-radius: var(--radius-pill);
+  background: hsl(var(--background));
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  transition: transform 0.2s;
+}
+
+.thumb[data-state="checked"] {
+  transform: translateX(var(--s20));
+}
+
+.thumb[data-state="unchecked"] {
+  transform: translateX(0);
+}

@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+}
+
+.container:has(:disabled) {
+  opacity: 0.5;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+}
+
+.slot {
+  position: relative;
+  display: flex;
+  height: var(--s40);
+  width: var(--s40);
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid hsl(var(--input));
+  border-bottom: 1px solid hsl(var(--input));
+  border-right: 1px solid hsl(var(--input));
+  font-size: var(--fs14);
+  transition: all 0.2s;
+}
+
+.slot:first-child {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+  border-left: 1px solid hsl(var(--input));
+}
+
+.slot:last-child {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.slotActive {
+  z-index: 10;
+  box-shadow: 0 0 0 2px hsl(var(--ring));
+}
+
+.caretWrapper {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caret {
+  height: var(--s16);
+  width: 1px;
+  background: hsl(var(--foreground));
+  animation: otpCaretBlink 1s ease-out infinite;
+}
+
+@keyframes otpCaretBlink {
+  0%,
+  70%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  50% {
+    opacity: 0;
+  }
+}

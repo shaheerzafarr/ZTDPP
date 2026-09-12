@@ -1,0 +1,38 @@
+.root {
+  position: relative;
+  overflow: hidden;
+}
+
+.viewport {
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+}
+
+.scrollbar {
+  display: flex;
+  touch-action: none;
+  user-select: none;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.vertical {
+  height: 100%;
+  width: var(--s10);
+  border-left: 1px solid transparent;
+  padding: 1px;
+}
+
+.horizontal {
+  height: var(--s10);
+  flex-direction: column;
+  border-top: 1px solid transparent;
+  padding: 1px;
+}
+
+.thumb {
+  position: relative;
+  flex: 1 1 0%;
+  border-radius: var(--radius-pill);
+  background: hsl(var(--border));
+}

@@ -1,0 +1,34 @@
+.index {
+  font-weight: 700;
+  font-size: var(--fs13);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: hsl(var(--foreground));
+}
+
+.checks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: var(--s8) var(--s16);
+}
+
+.checkRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s8);
+  padding: var(--s10) var(--s12);
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  font-size: var(--fs14);
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+@media (min-width: 768px) {
+  .checks {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

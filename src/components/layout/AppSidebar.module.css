@@ -1,0 +1,223 @@
+.sidebarRoot {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.sidebarRoot [data-sidebar="sidebar"] {
+  background: transparent;
+}
+
+.aside {
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+  flex-shrink: 0;
+  flex-direction: column;
+  overflow: hidden;
+  /* Longhand: the shorthand would reset the .sidebar-texture background-image. */
+  background-color: hsl(var(--sidebar-background));
+  color: hsl(var(--sidebar-foreground));
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  padding: var(--s20);
+}
+
+.logo {
+  height: var(--s40);
+  width: auto;
+  object-fit: contain;
+}
+
+.nav {
+  margin-top: var(--s8);
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--s4);
+  overflow-y: auto;
+  padding-left: var(--s12);
+  padding-right: var(--s12);
+}
+
+/* ---- Nav links ---- */
+.navLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+  border-radius: var(--radius-btn);
+  padding: var(--s10) var(--s12);
+  font-size: var(--fs14);
+  font-weight: 500;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.navLinkActive {
+  background: hsl(var(--sidebar-primary) / 0.15);
+  color: hsl(var(--sidebar-foreground));
+}
+
+.navLinkInactive {
+  color: hsl(var(--sidebar-foreground) / 0.7);
+}
+
+.navLinkInactive:hover {
+  background: hsl(var(--sidebar-foreground) / 0.05);
+  color: hsl(var(--sidebar-foreground));
+}
+
+.activeIndicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: var(--s24);
+  width: var(--s4);
+  transform: translateY(-50%);
+  border-top-right-radius: var(--radius-pill);
+  border-bottom-right-radius: var(--radius-pill);
+  background: hsl(var(--sidebar-ring));
+}
+
+.navIcon {
+  height: 18px;
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.settingsWrap {
+  margin-bottom: var(--s8);
+  flex-shrink: 0;
+  padding-left: var(--s12);
+  padding-right: var(--s12);
+}
+
+/* ---- User block ---- */
+.userBlock {
+  flex-shrink: 0;
+  border-top: 1px solid hsl(var(--sidebar-foreground) / 0.1);
+  padding: var(--s16);
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+}
+
+.userInitials {
+  display: flex;
+  height: var(--s36);
+  width: var(--s36);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: hsl(var(--sidebar-primary));
+  font-size: var(--fs14);
+  font-weight: 500;
+  color: hsl(var(--sidebar-primary-foreground));
+}
+
+.userInfo {
+  min-width: 0;
+  flex: 1;
+}
+
+.userName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--fs14);
+  font-weight: 500;
+  color: hsl(var(--sidebar-foreground));
+}
+
+.userRole {
+  margin-top: 2px;
+  display: inline-block;
+  border-radius: var(--radius-pill);
+  background: hsl(var(--secondary) / 0.2);
+  padding: 2px var(--s8);
+  font-size: var(--fs10);
+  font-weight: 500;
+  color: hsl(var(--secondary));
+}
+
+/* ---- Logout ---- */
+.footer {
+  flex-shrink: 0;
+  padding: 0 var(--s16) var(--s16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+}
+
+.logoutButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s8);
+  border-radius: var(--radius-btn);
+  border: 1px solid hsl(var(--sidebar-foreground) / 0.1);
+  background: transparent;
+  padding-top: var(--s8);
+  padding-bottom: var(--s8);
+  text-align: center;
+  font-size: var(--fs12);
+  color: hsl(var(--sidebar-foreground) / 0.5);
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.logoutButton:hover {
+  color: hsl(var(--sidebar-foreground) / 0.8);
+}
+
+/* ---- Brand ---- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+}
+
+.brandMark {
+  display: flex;
+  height: var(--s36);
+  width: var(--s36);
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: hsl(var(--sidebar-primary));
+  color: hsl(var(--sidebar-primary-foreground));
+  box-shadow: var(--shadow-btn);
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brandName {
+  font-family: var(--font-jakarta), var(--font-inter), sans-serif;
+  font-size: var(--fs18);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: hsl(var(--sidebar-foreground));
+}
+
+.brandTag {
+  margin-top: 2px;
+  font-size: var(--fs10);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: hsl(var(--sidebar-foreground) / 0.55);
+}

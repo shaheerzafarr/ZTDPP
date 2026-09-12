@@ -1,0 +1,55 @@
+/*
+ * Base rule doubles as the fallback for an unrecognised status
+ * (was `bg-gray-100 text-gray-600`). Known statuses override below.
+ */
+.badge {
+  display: inline-block;
+  padding: var(--s4) var(--s12);
+  border-radius: var(--radius-pill);
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  font-size: var(--fs12);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.badge[data-status="active"] {
+  background: hsl(var(--secondary) / 0.15);
+  color: var(--success);
+}
+
+.badge[data-status="inactive"],
+.badge[data-status="cancelled"] {
+  background: var(--gray-3);
+  color: var(--gray-1);
+}
+
+.badge[data-status="pending"],
+.badge[data-status="in-progress"] {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.badge[data-status="overdue"],
+.badge[data-status="suspended"] {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.badge[data-status="paid"],
+.badge[data-status="completed"] {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.badge[data-status="trial"],
+.badge[data-status="scheduled"] {
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+}
+
+/* No violet token exists in color.css; kept the original violet literals. */
+.badge[data-status="refunded"] {
+  background: #ede9fe;
+  color: #5b21b6;
+}

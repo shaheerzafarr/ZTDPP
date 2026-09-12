@@ -1,0 +1,32 @@
+export const mockJobs = [
+  {
+    _id: "1",
+    customer: { firstName: "John", lastName: "Doe", email: "john@example.com" },
+    technician: { firstName: "Mike", lastName: "Smith" },
+    services: [{ name: "Pool Cleaning", price: 120 }],
+    paymentType: "one_time",
+    startDate: "2024-07-10T09:00:00Z",
+    status: "scheduled",
+    totalAmount: 120,
+  },
+  {
+    _id: "2",
+    customer: { firstName: "Jane", lastName: "Wilson", email: "jane@example.com" },
+    technician: { firstName: "Carlos", lastName: "Rivera" },
+    services: [{ name: "Chemical Balance", price: 80 }],
+    paymentType: "recurring",
+    startDate: "2024-07-11T10:00:00Z",
+    status: "pending",
+    totalAmount: 80,
+  },
+  {
+    _id: "3",
+    customer: { firstName: "Bob", lastName: "Johnson" },
+    technician: { firstName: "Lisa", lastName: "Chen" },
+    services: [{ name: "Filter Replacement", price: 200 }],
+    paymentType: "one_time",
+    startDate: "2024-07-12T14:00:00Z",
+    status: "completed",
+    totalAmount: 200,
+  },
+];

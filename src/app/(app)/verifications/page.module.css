@@ -1,0 +1,11 @@
+.sub {
+  margin-top: 2px;
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.score {
+  font-weight: 700;
+  font-size: var(--fs15);
+  color: hsl(var(--foreground));
+}

@@ -1,0 +1,93 @@
+.header {
+  margin-bottom: var(--s24);
+}
+
+.title {
+  font-family: var(--font-jakarta), var(--font-inter), sans-serif;
+  font-size: var(--fs24);
+  font-weight: 700;
+  color: hsl(var(--foreground));
+}
+
+.subtitle {
+  margin-top: var(--s4);
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+}
+
+.form > * + * {
+  margin-top: var(--s16);
+}
+
+.fieldIcon {
+  color: hsl(var(--muted-foreground));
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s12);
+}
+
+.forgotRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.link {
+  font-size: var(--fs13);
+  font-weight: 600;
+  color: hsl(var(--primary));
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.submit {
+  height: var(--s44);
+}
+
+.footer {
+  margin-top: var(--s20);
+  text-align: center;
+  font-size: var(--fs13);
+  color: hsl(var(--muted-foreground));
+}
+
+.hint {
+  margin-top: var(--s16);
+  padding: var(--s10) var(--s12);
+  border-radius: var(--radius-btn);
+  background: hsl(var(--muted) / 0.6);
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s8);
+  font-size: var(--fs13);
+  color: hsl(var(--muted-foreground));
+}
+
+.checkboxRow input {
+  margin-top: 3px;
+}
+
+.error {
+  font-size: var(--fs12);
+  color: hsl(var(--destructive));
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

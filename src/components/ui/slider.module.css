@@ -1,0 +1,49 @@
+.root {
+  position: relative;
+  display: flex;
+  width: 100%;
+  touch-action: none;
+  user-select: none;
+  align-items: center;
+}
+
+.track {
+  position: relative;
+  height: var(--s8);
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: hsl(var(--secondary));
+}
+
+.range {
+  position: absolute;
+  height: 100%;
+  background: hsl(var(--primary));
+}
+
+.thumb {
+  display: block;
+  height: var(--s20);
+  width: var(--s20);
+  border: 2px solid hsl(var(--primary));
+  border-radius: var(--radius-pill);
+  background: hsl(var(--background));
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.thumb:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
+}
+
+.thumb:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

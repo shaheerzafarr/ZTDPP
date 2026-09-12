@@ -1,0 +1,184 @@
+.calendar {
+  padding: var(--s12);
+}
+
+.months {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+}
+
+.month {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+}
+
+.caption {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--s4);
+  position: relative;
+  align-items: center;
+}
+
+.captionLabel {
+  font-size: var(--fs14);
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+}
+
+.navButton {
+  height: var(--s28);
+  width: var(--s28);
+  background: transparent;
+  padding: 0;
+  opacity: 0.5;
+}
+
+.navButton:hover {
+  opacity: 1;
+}
+
+.navButtonPrevious {
+  position: absolute;
+  left: var(--s4);
+}
+
+.navButtonNext {
+  position: absolute;
+  right: var(--s4);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headRow {
+  display: flex;
+}
+
+.headCell {
+  color: hsl(var(--muted-foreground));
+  border-radius: var(--radius-md);
+  width: var(--s36);
+  font-weight: 400;
+  font-size: var(--fs13);
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  margin-top: var(--s8);
+}
+
+.cell {
+  height: var(--s36);
+  width: var(--s36);
+  text-align: center;
+  font-size: var(--fs14);
+  padding: 0;
+  position: relative;
+}
+
+.cell:focus-within {
+  position: relative;
+  z-index: 20;
+}
+
+.cell:has([aria-selected]) {
+  background: hsl(var(--accent));
+}
+
+.cell:has([aria-selected].dayOutside) {
+  background: hsl(var(--accent) / 0.5);
+}
+
+.cell:has([aria-selected].dayRangeEnd) {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.cell:first-child:has([aria-selected]) {
+  border-top-left-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
+
+.cell:last-child:has([aria-selected]) {
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+}
+
+.day {
+  height: var(--s36);
+  width: var(--s36);
+  padding: 0;
+  font-weight: 400;
+}
+
+.day[aria-selected] {
+  opacity: 1;
+}
+
+.daySelected {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.daySelected:hover {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.daySelected:focus {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.dayToday {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.dayOutside {
+  color: hsl(var(--muted-foreground));
+  opacity: 0.5;
+}
+
+.dayOutside[aria-selected] {
+  background: hsl(var(--accent) / 0.5);
+  color: hsl(var(--muted-foreground));
+  opacity: 0.3;
+}
+
+.dayDisabled {
+  color: hsl(var(--muted-foreground));
+  opacity: 0.5;
+}
+
+.dayRangeMiddle[aria-selected] {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.dayHidden {
+  visibility: hidden;
+}
+
+.icon {
+  height: var(--s16);
+  width: var(--s16);
+}
+
+@media (min-width: 640px) {
+  .months {
+    flex-direction: row;
+    gap: var(--s16);
+  }
+}

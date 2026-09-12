@@ -1,0 +1,43 @@
+.inset {
+  background: hsl(var(--muted) / 0.3);
+}
+
+.header {
+  padding-left: var(--s32);
+  padding-right: var(--s32);
+  position: sticky;
+  top: var(--s8);
+  z-index: 40;
+}
+
+.main {
+  flex: 1;
+  overflow: auto;
+  padding: var(--s24) var(--s16);
+}
+
+@media (min-width: 768px) {
+  .main {
+    padding-left: var(--s24);
+    padding-right: var(--s24);
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding-left: var(--s32);
+    padding-right: var(--s32);
+  }
+}
+
+.mobileBar {
+  display: flex;
+  align-items: center;
+  padding: var(--s8) var(--s12) 0;
+}
+
+@media (min-width: 768px) {
+  .mobileBar {
+    display: none;
+  }
+}

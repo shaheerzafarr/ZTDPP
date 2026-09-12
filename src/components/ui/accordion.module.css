@@ -1,0 +1,70 @@
+.item {
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+.header {
+  display: flex;
+}
+
+.trigger {
+  display: flex;
+  flex: 1 1 0%;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--s16);
+  padding-bottom: var(--s16);
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.trigger:hover {
+  text-decoration: underline;
+}
+
+.chevron {
+  height: var(--s16);
+  width: var(--s16);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.trigger[data-state="open"] > .chevron {
+  transform: rotate(180deg);
+}
+
+@keyframes accordionDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordionUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.content {
+  overflow: hidden;
+  font-size: var(--fs14);
+  transition: all 0.2s;
+}
+
+.content[data-state="open"] {
+  animation: accordionDown 0.2s ease-out;
+}
+
+.content[data-state="closed"] {
+  animation: accordionUp 0.2s ease-out;
+}
+
+.contentInner {
+  padding-bottom: var(--s16);
+  padding-top: 0;
+}

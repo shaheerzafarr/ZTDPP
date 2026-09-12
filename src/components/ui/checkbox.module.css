@@ -1,0 +1,38 @@
+.checkbox {
+  height: var(--s16);
+  width: var(--s16);
+  flex-shrink: 0;
+  border: 1px solid hsl(var(--primary));
+  border-radius: var(--radius-sm);
+  background: transparent;
+  padding: 0;
+}
+
+.checkbox[data-state="checked"] {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.checkbox:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
+}
+
+.checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+}
+
+.icon {
+  height: var(--s16);
+  width: var(--s16);
+}

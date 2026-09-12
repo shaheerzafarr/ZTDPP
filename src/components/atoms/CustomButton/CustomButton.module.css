@@ -1,0 +1,97 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s8);
+  padding: var(--s10) var(--s24);
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--fs14);
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.01);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 1px hsl(var(--background)),
+    0 0 0 3px hsl(var(--ring));
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ---------- Variants ---------- */
+
+.btn[data-variant="primary"] {
+  height: var(--s40);
+  padding: var(--s8) var(--s16);
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.btn[data-variant="primary"]:hover {
+  background: hsl(var(--primary) / 0.9);
+}
+
+.btn[data-variant="secondary"] {
+  border: 1px solid var(--Border-Grey);
+  background: transparent;
+  color: var(--Black);
+}
+
+.btn[data-variant="secondary"]:hover {
+  background: rgba(218, 223, 231, 0.2);
+}
+
+.btn[data-variant="outline"] {
+  border: 1.5px solid hsl(var(--border));
+  color: hsl(var(--muted-foreground));
+  font-size: var(--fs14);
+  font-weight: 500;
+}
+
+.btn[data-variant="outline"]:hover {
+  background: hsl(var(--muted));
+}
+
+.btn[data-variant="ghost"]:hover {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.btn[data-variant="link"] {
+  color: hsl(var(--primary));
+  text-underline-offset: 4px;
+}
+
+.btn[data-variant="link"]:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Loading spinner ---------- */
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

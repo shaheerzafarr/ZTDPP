@@ -1,0 +1,189 @@
+@keyframes pmSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- Row ---- */
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--s16);
+  border-radius: var(--radius-card);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  padding: var(--s16);
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.rowDefault {
+  border-color: hsl(var(--primary));
+  background: hsl(var(--primary) / 0.05);
+}
+
+.rowSelectable {
+  cursor: pointer;
+}
+
+.rowSelectable:hover {
+  border-color: hsl(var(--primary) / 0.5);
+}
+
+.brandIcon {
+  display: flex;
+  height: var(--s40);
+  width: var(--s40);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: hsl(var(--primary) / 0.1);
+}
+
+.cardIcon {
+  height: var(--s20);
+  width: var(--s20);
+  color: hsl(var(--primary));
+}
+
+.rowInfo {
+  min-width: 0;
+  flex: 1;
+}
+
+.brandLine {
+  font-size: var(--fs14);
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.holderName {
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.expiry {
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.rowActions {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+}
+
+.spinnerPrimary {
+  height: var(--s16);
+  width: var(--s16);
+  color: hsl(var(--primary));
+  animation: pmSpin 1s linear infinite;
+}
+
+.spinnerDestructive {
+  height: var(--s16);
+  width: var(--s16);
+  color: hsl(var(--destructive));
+  animation: pmSpin 1s linear infinite;
+}
+
+.defaultBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  border-radius: var(--radius-pill);
+  background: hsl(var(--primary) / 0.1);
+  padding: var(--s4) var(--s10);
+  font-size: var(--fs12);
+  font-weight: 500;
+  color: hsl(var(--primary));
+}
+
+.badgeIcon {
+  height: var(--s12);
+  width: var(--s12);
+}
+
+.deleteButton {
+  padding: var(--s6);
+  border-radius: var(--radius-btn);
+  color: hsl(var(--destructive));
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+.deleteButton:hover {
+  background: hsl(var(--destructive) / 0.1);
+}
+
+.deleteButton:disabled {
+  opacity: 0.5;
+}
+
+.deleteIcon {
+  height: var(--s16);
+  width: var(--s16);
+}
+
+/* ---- Card ---- */
+.header {
+  margin-bottom: var(--s24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s12);
+}
+
+.title {
+  font-size: var(--fs16);
+  font-weight: 600;
+  color: hsl(var(--primary));
+}
+
+.loaderWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--s64);
+  padding-bottom: var(--s64);
+}
+
+.loader {
+  height: var(--s32);
+  width: var(--s32);
+  color: hsl(var(--primary));
+  animation: pmSpin 1s linear infinite;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s12);
+  padding-top: var(--s64);
+  padding-bottom: var(--s64);
+  text-align: center;
+}
+
+.emptyIcon {
+  height: var(--s48);
+  width: var(--s48);
+  color: hsl(var(--muted-foreground));
+}
+
+.emptyText {
+  font-size: var(--fs14);
+  color: hsl(var(--muted-foreground));
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s12);
+}

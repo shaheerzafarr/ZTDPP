@@ -1,0 +1,32 @@
+.sub {
+  margin-top: 2px;
+  font-size: var(--fs12);
+  color: hsl(var(--muted-foreground));
+}
+
+.badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s4);
+}
+
+.filterChip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s6);
+  height: var(--s40);
+  padding: 0 var(--s12);
+  border: 1px solid hsl(var(--primary) / 0.4);
+  border-radius: var(--radius-btn);
+  background: hsl(var(--primary) / 0.08);
+  color: hsl(var(--primary));
+  font-family: inherit;
+  font-size: var(--fs13);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filterChip:hover {
+  background: hsl(var(--primary) / 0.14);
+}

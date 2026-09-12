@@ -1,0 +1,119 @@
+.index {
+  font-weight: 700;
+  font-size: var(--fs13);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: hsl(var(--foreground));
+}
+
+.inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s8);
+}
+
+.warning {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s10);
+  margin-bottom: var(--s16);
+  padding: var(--s10) var(--s12);
+  border-radius: var(--radius-btn);
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  color: var(--warning);
+  font-size: var(--fs13);
+  font-weight: 500;
+}
+
+.warning svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.warning code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: var(--fs12);
+}
+
+.auditGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s12);
+}
+
+.auditStat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  padding: var(--s10) var(--s12);
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+}
+
+.auditLabel {
+  font-size: var(--fs11, 11px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: hsl(var(--muted-foreground));
+}
+
+.auditValue {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s6);
+  font-size: var(--fs16);
+  font-weight: 700;
+  color: hsl(var(--foreground));
+}
+
+.auditStat[data-tone="success"] .auditValue {
+  color: var(--success);
+}
+
+.auditStat[data-tone="danger"] .auditValue {
+  color: var(--danger);
+}
+
+.auditOk {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+  margin: var(--s16) 0 0;
+  font-size: var(--fs14);
+  color: var(--success);
+  font-weight: 500;
+}
+
+.issues {
+  margin-top: var(--s16);
+}
+
+.tabsBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s12);
+  padding: var(--s8) var(--s20) 0;
+  border-bottom: 1px solid hsl(var(--border) / 0.7);
+}
+
+.hashSearch {
+  width: 100%;
+  max-width: 420px;
+  padding-bottom: var(--s8);
+}
+
+@media (min-width: 640px) {
+  .auditGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .auditGrid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}

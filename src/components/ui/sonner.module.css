@@ -1,0 +1,20 @@
+.toaster .toast {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
+  box-shadow: var(--shadow-popover);
+}
+
+.toaster .description {
+  color: hsl(var(--muted-foreground));
+}
+
+.toaster .actionButton {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.toaster .cancelButton {
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+}

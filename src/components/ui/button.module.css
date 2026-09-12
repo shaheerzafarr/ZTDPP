@@ -1,0 +1,115 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s8);
+  white-space: nowrap;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--fs14);
+  font-weight: 500;
+  transition:
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
+}
+
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn svg {
+  pointer-events: none;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+/* ---------- Variants ---------- */
+
+.variantDefault {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.variantDefault:hover {
+  background: hsl(var(--primary) / 0.9);
+}
+
+.variantDestructive {
+  background: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+}
+
+.variantDestructive:hover {
+  background: hsl(var(--destructive) / 0.9);
+}
+
+.variantOutline {
+  border: 1px solid hsl(var(--input));
+  background: hsl(var(--background));
+}
+
+.variantOutline:hover {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.variantSecondary {
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+}
+
+.variantSecondary:hover {
+  background: hsl(var(--secondary) / 0.8);
+}
+
+.variantGhost:hover {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+.variantLink {
+  color: hsl(var(--primary));
+  text-underline-offset: 4px;
+}
+
+.variantLink:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Sizes ---------- */
+
+.sizeDefault {
+  height: var(--s40);
+  padding: var(--s8) var(--s16);
+}
+
+.sizeSm {
+  height: var(--s36);
+  border-radius: var(--radius-md);
+  padding-left: var(--s12);
+  padding-right: var(--s12);
+}
+
+.sizeLg {
+  height: var(--s44);
+  border-radius: var(--radius-md);
+  padding-left: var(--s32);
+  padding-right: var(--s32);
+}
+
+.sizeIcon {
+  width: var(--s40);
+  height: var(--s40);
+}
