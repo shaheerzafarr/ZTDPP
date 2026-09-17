@@ -75,7 +75,7 @@ Use a maintenance window for the migration. Do not run the new and old writers t
 
 ## Validation status
 
-- Backend type check and 49 unit tests pass.
+- Backend read-only lint, type check and 49 unit tests pass.
 - All 10 isolated MongoDB integration tests pass, covering transaction rollback, concurrent registration/sealing, per-owner claim privacy, signed revocation, shared quota enforcement, API-key allowance races, one-time OTP consumption, refresh-token reuse rejection, and full-application HTTP authentication checks.
 - Frontend production build and lint pass.
 - Both production dependency audits report zero vulnerabilities at the time checked.
@@ -86,6 +86,7 @@ Use a maintenance window for the migration. Do not run the new and old writers t
 Backend (from ZTDPP-Backend/Backend):
 
 ```text
+npm run lint
 npm run typecheck
 npm test -- --runInBand
 npm run test:integration
@@ -102,9 +103,7 @@ npm run lint
 npm run build
 npm audit --omit=dev
 ```
-
-
-Backend strict ESLint still reports formatting and unsafe dynamic-type findings in the existing codebase, including the excluded AI files. Its current command also applies fixes automatically; use a read-only lint invocation for review. Backend CI currently enforces compilation, tests and production dependency auditing, while frontend CI also enforces lint. This is recorded as remaining maintenance work, not a passing backend lint check.
+Backend lint is read-only and enforced in CI. Existing dynamic-type findings remain visible as warnings through `npm run lint:report`; CI fails on semantic errors without rewriting source files. Formatting is kept separate so the protected AI and trust-engine files are not changed.
 
 ## Scope and remaining product decisions
 
