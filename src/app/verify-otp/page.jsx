@@ -78,7 +78,7 @@ export default function VerifyOtpPage() {
       });
       setLoading((l) => ({ ...l, verify: false }));
       if (!response) return;
-      dispatch(setResetCode(otp));
+      dispatch(setResetCode(response.data.resetToken));
       router.push("/reset-password");
       return;
     }
@@ -100,7 +100,7 @@ export default function VerifyOtpPage() {
     setLoading((l) => ({ ...l, resend: true }));
     const { response } = await Patch({
       route: "auth/resend-otp",
-      data: { email, type: "email" },
+      data: { email, type: "email", purpose: verifyOtpType === "forgotPassword" ? "recover-password" : "verify-email" },
     });
     setLoading((l) => ({ ...l, resend: false }));
     if (response) {

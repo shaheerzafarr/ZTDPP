@@ -30,7 +30,9 @@ const safeDecode = (value) => {
 export default function ManifestDetailPage() {
   const params = useParams();
   const router = useRouter();
-  const { Get } = useAxios();
+  const { Get, Post } = useAxios();
+  const [reason, setReason] = useState("");
+  const [revoking, setRevoking] = useState(false);
   const manifestId = safeDecode(params?.manifestId);
 
   const [loading, setLoading] = useState(true);
@@ -101,7 +103,23 @@ export default function ManifestDetailPage() {
         }
       />
 
-      <SectionCard title="Manifest" description="Signed provenance record. Fields below are exactly what the signature covers.">
+      <SectionCard title="Claim status" description="Origin details are declared by the publisher. A platform signature establishes record integrity; it does not prove camera capture or ownership.">
+        {manifest.status === "revoked" ? <p>This claim was revoked: {manifest.revocation?.reason}</p> : (
+          <form onSubmit={async e => {
+            e.preventDefault(); setRevoking(true);
+            const { response } = await Post({ route: `assets/manifest/${encodeURIComponent(manifestId)}/revoke`, data: { reason: reason.trim() } });
+            if (response?.data) setManifest(response.data);
+            setRevoking(false);
+          }}>
+            <label htmlFor="revocation-reason">Reason for revoking this claim</label>
+            <input id="revocation-reason" value={reason} onChange={e => setReason(e.target.value)}
+              required minLength={3} maxLength={500} style={{ width: "100%", padding: 12 }} />
+            <p>Revocation is permanent. The original claim remains in the audit history.</p>
+            <CustomButton type="submit" loading={revoking} disabled={reason.trim().length < 3}>Revoke claim permanently</CustomButton>
+          </form>
+        )}
+      </SectionCard>
+      <SectionCard title="Manifest" description="Provenance record, signatures and current ledger status.">
         <KeyValueList
           columns={3}
           dense

@@ -14,7 +14,7 @@ import CustomInput from "@/components/atoms/CustomInput/CustomInput";
 import { StatusBadge } from "@/components/molecules/ToneBadge/ToneBadge";
 import useAxios from "@/interceptor/useAxios";
 import { zodValidate } from "@/lib/zodValidate";
-import { updateUserData } from "@/store/auth/authSlice";
+import { logout, updateUserData } from "@/store/auth/authSlice";
 import { formatDate, getRoleName, titleCase } from "@/resources/utils/helper";
 import shared from "@/styles/shared.module.css";
 import classes from "./page.module.css";
@@ -186,7 +186,8 @@ function ProfileSection({ user }) {
 }
 
 function SecuritySection({ user }) {
-  const { Patch } = useAxios();
+  const dispatch = useDispatch();
+  const { Patch, Post } = useAxios();
   const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
@@ -199,6 +200,9 @@ function SecuritySection({ user }) {
       if (!response) return;
       toast.success(response.data?.message ?? "Password updated");
       helpers.resetForm();
+      await Post({ route: "auth/logout", showAlert: false });
+      dispatch(logout());
+      window.location.assign(getRoleName(user) === "super-admin" ? "/admin/login" : "/login");
     },
   });
 

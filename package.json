@@ -6,7 +6,7 @@
     "dev": "next dev --port 8080",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src"
   },
   "dependencies": {
     "@mapbox/polyline": "^1.2.1",
@@ -74,5 +74,8 @@
     "@svgr/webpack": "^8.1.0",
     "eslint": "^9.32.0",
     "eslint-config-next": "^15.3.4"
+  },
+  "overrides": {
+    "postcss": "^8.5.23"
   }
 }

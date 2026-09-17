@@ -1,11 +1,26 @@
-# ZTDPP — Frontend Dashboard
+# ZTDPP ? Frontend Dashboard
 
-Next.js 15 dashboard for the Zero Trust Digital Provenance Platform (ZTDPP).
+Next.js 15 dashboard for the Zero Trust Digital Provenance Platform.
 
-## Getting Started
+## Development
 
-`ash
-npm install
+```text
+npm ci
 npm run dev
-``n
-Runs on http://localhost:8080. Connects to the NestJS backend API (default: http://localhost:5006/api/v1/).
+```
+
+Runs on http://localhost:8080. Set NEXT_PUBLIC_API_BASE_URL in .env.local to the NestJS API, including its trailing slash.
+
+## Checks
+
+```text
+npm run lint
+npm run build
+npm audit --omit=dev
+```
+
+## Production
+
+Read the [production readiness and release checklist](docs/PRODUCTION_READINESS.md) before deployment. The backend repository contains the HTTPS Compose stack and database migration command.
+
+AI integration and trust scoring remain unchanged during this hardening work.

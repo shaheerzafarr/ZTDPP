@@ -32,6 +32,8 @@ export default function VerificationsPage() {
   const [page, setPage] = useState(1);
   const [verdict, setVerdict] = useState("");
   const [match, setMatch] = useState("");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -40,6 +42,8 @@ export default function VerificationsPage() {
       params: {
         page,
         limit: LIMIT,
+        ...(from ? { from } : {}),
+        ...(to ? { to } : {}),
         ...(verdict ? { verdict } : {}),
         ...(match ? { match } : {}),
       },
@@ -48,7 +52,7 @@ export default function VerificationsPage() {
     setItems(extractItems(response));
     setTotal(extractTotalRecords(response));
     setLoading(false);
-  }, [page, verdict, match]);
+  }, [page, verdict, match, from, to]);
 
   useEffect(() => {
     void load();
@@ -125,6 +129,8 @@ export default function VerificationsPage() {
 
       <div className={shared.toolbar}>
         <div className={shared.filters}>
+          <label>From (UTC)<input type="date" value={from} max={to || undefined} onChange={e => { setFrom(e.target.value); setPage(1); }} /></label>
+          <label>Through (UTC)<input type="date" value={to} min={from || undefined} onChange={e => { setTo(e.target.value); setPage(1); }} /></label>
           <select
             className={shared.select}
             value={verdict}

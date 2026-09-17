@@ -54,6 +54,15 @@ export default function TrustReport({ report, history, manifestLinkBase, classNa
 
   return (
     <div className={cn(classes.root, className)}>
+      <div>
+        <button type="button" onClick={() => {
+          const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2)], { type: "application/json" }));
+          const link = document.createElement("a"); link.href = url;
+          link.download = "verification-" + report.verificationId.replace(/[^a-zA-Z0-9_-]/g, "_") + ".json";
+          link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }}>Download report JSON</button>
+        {report.provenance?.currentManifestStatus === "revoked" && <p role="alert">The referenced claim is currently revoked. The scores below reflect the original verification time.</p>}
+      </div>
       {/* ------------------------------------------------------------ hero */}
       <SectionCard padded={false} className={classes.hero}>
         <div className={classes.heroInner}>

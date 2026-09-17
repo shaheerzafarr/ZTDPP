@@ -15,13 +15,15 @@ import commonReducer from "./common/commonSlice";
 
 const authPersistConfig = {
   key: "auth",
+  version: 2,
+  migrate: async (state) => { if (!state) return state; const { accessToken, resetCode, ...safe } = state; return safe; },
   storage,
   whitelist: [
     "user",
     "isAuthenticated",
-    "accessToken",
+
     "resetEmail",
-    "resetCode",
+
     "verifyOtpType",
   ],
 };

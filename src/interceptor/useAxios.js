@@ -23,6 +23,7 @@ export function extractErrorMessage(error, fallback = "Something went wrong") {
   return error?.message ?? fallback;
 }
 
+let refreshPromise = null;
 const bare = axios.create({
   baseURL: APP_CONFIG.API_BASE_URL,
   withCredentials: true,
@@ -56,10 +57,15 @@ export default function useAxios() {
           originalRequest?.url ?? "",
         );
 
-        if (error.response?.status === 401 && !originalRequest._retry && !isAuthRoute) {
+        if (error.response?.status === 401 && originalRequest && !originalRequest._retry && !isAuthRoute) {
           originalRequest._retry = true;
           try {
-            const res = await bare.post("auth/refresh-token");
+            if (!refreshPromise) {
+              const refresh = () => bare.post("auth/refresh-token");
+              refreshPromise = (navigator.locks ? navigator.locks.request("ztdpp-session-refresh", refresh) : refresh())
+                .finally(() => { refreshPromise = null; });
+            }
+            const res = await refreshPromise;
             const newToken = res.data?.data?.token;
             if (newToken) dispatch(setAccessToken(newToken));
             return instance(originalRequest);

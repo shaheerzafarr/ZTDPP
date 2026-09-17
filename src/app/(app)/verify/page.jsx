@@ -19,6 +19,7 @@ export default function VerifyPage() {
   const { Post, Get } = useAxios();
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
+  const [manifestId, setManifestId] = useState("");
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [report, setReport] = useState(null);
@@ -36,6 +37,7 @@ export default function VerifyPage() {
 
     const { response } = await Post({
       route: "verifications",
+      params: manifestId.trim() ? { manifestId: manifestId.trim() } : undefined,
       data: form,
       headers: { "Content-Type": "multipart/form-data" },
       timeout: 120000,
@@ -62,6 +64,7 @@ export default function VerifyPage() {
 
   const reset = () => {
     setFile(null);
+    setManifestId("");
     setReport(null);
     setHistory(null);
     setProgress(0);
@@ -87,7 +90,13 @@ export default function VerifyPage() {
           description="The file is fingerprinted (SHA-256 + perceptual hash) and analysed in memory. It is not stored."
         >
           <div className={classes.uploadGrid}>
-            <FileDropzone file={file} onChange={setFile} disabled={loading} />
+            <div>
+              <FileDropzone file={file} onChange={setFile} disabled={loading} />
+              <label htmlFor="manifest-reference">Manifest reference (optional)</label>
+              <input id="manifest-reference" value={manifestId} onChange={e => setManifestId(e.target.value)}
+                maxLength={100} disabled={loading} placeholder="urn:ztdpp:manifest:..." style={{ width: "100%", padding: 12 }} />
+              <p>Use the publisher?s manifest reference to select a claim when several accounts registered the same image.</p>
+            </div>
             <div className={classes.side}>
               <ol className={classes.steps}>
                 <li>

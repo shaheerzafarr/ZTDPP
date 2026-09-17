@@ -39,7 +39,7 @@ export default function ForgotPasswordPage() {
       if (!response) return;
       dispatch(setResetEmail(values.email));
       dispatch(setVerifyOtpType("forgotPassword"));
-      toast.success("Reset code sent to your email");
+      toast.success("If this account can be recovered, a code has been sent.");
       router.push("/verify-otp");
     },
   });
