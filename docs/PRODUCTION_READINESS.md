@@ -1,6 +1,6 @@
 # Production hardening and release checklist
 
-Updated 17 September 2026. These changes preserve the current project scope. The AI detection service, model integration and trust scoring algorithm are outside this work.
+Updated 18 September 2026. These changes preserve the current project scope. The AI detection service, model integration and trust scoring algorithm are outside this work.
 
 ## Implemented
 
@@ -8,6 +8,7 @@ Updated 17 September 2026. These changes preserve the current project scope. The
 | --- | --- |
 | Account recovery | HMAC-hashed, purpose-specific codes; ten-minute expiry; five attempts; atomic consumption; separate random reset token. |
 | Sessions | HTTP-only cookies, short access tokens, rotated refresh tokens, persisted session revocation and invalidation after password changes. Browser persistence excludes tokens and recovery codes. |
+| Authentication configuration | Validated access/refresh lifetimes drive JWTs, cookies and persisted sessions consistently. OTP emails match the enforced ten-minute lifetime. |
 | Requests | Origin checks for cookie writes, shared MongoDB request quotas, API-key allowance caps, bounded image memory/concurrency, MIME and decoded-image validation. |
 | Registration | MongoDB transactions cover asset, manifest and ledger writes. Concurrent registrations serialize against a database lock. Claims are unique per owner and content hash. |
 | Lineage | Editing a stale or revoked parent is rejected. Separate accounts can declare claims about the same bytes. Ambiguous verification needs a manifest reference. |
@@ -18,6 +19,7 @@ Updated 17 September 2026. These changes preserve the current project scope. The
 | Privacy | Cross-account reports receive a limited claim projection. Private metadata, publisher email and API-key details are excluded. |
 | Authorization | Controller-level administrator restrictions are enforced; legacy S3 upload tools require an administrator. |
 | Administration | Write attempts and outcomes are recorded in security_audit without bodies or credentials. Database audit failure prevents a new write from starting. |
+| Observability | Server-generated request IDs are returned on responses, included in error bodies and recorded with administrative mutations. Expected 4xx responses remain visible in request logs without being duplicated as application failures. |
 | Operations | Explicit production configuration, liveness/readiness endpoints, non-root containers, HTTPS proxy configuration, migration command, automated checks, patched production dependencies. |
 
 ## Before deploying
@@ -27,10 +29,10 @@ Updated 17 September 2026. These changes preserve the current project scope. The
    - Rotate JWT secrets; users must sign in again.
    - Rotating the API-key pepper invalidates existing API keys; issue replacements.
    - Preserve public verification keys for historical signatures. If a signing key was exposed, record the compromise and decide which historical claims require re-registration. A signature made by a compromised key cannot establish trustworthy authorship.
-   - The development environment file has been removed from the Git index and remains intact locally. That removal is staged; no commit or history rewrite was made. Coordinate any history cleanup with collaborators.
+   - The development environment file has been removed from the Git index and remains intact locally. The removal is committed, but no history rewrite was made. Coordinate any history cleanup with collaborators.
 2. **Use an authenticated MongoDB replica set or managed cluster.** Standalone MongoDB cannot run the new transactions. Restrict database access to the backend and operations identities; require TLS for remote connections.
 3. **Rehearse the migration on a restored database.** Stop all old application writers first. The migration adds per-owner content and asset/version uniqueness before removing global content-hash uniqueness. It invalidates legacy OTPs and creates model indexes. Resolve constraint failures before starting the release.
-4. **Supply production secrets and a domain.** Keep env/.env.production out of images and Git. Configure HTTPS browser origins, SMTP, a persistent Ed25519 signer, API_KEY_PEPPER and JWT_SECRET. Set SEED_ADMIN_EMAIL and a unique 16?64 character SEED_ADMIN_PASSWORD only when creating the first administrator.
+4. **Supply production secrets and a domain.** Keep env/.env.production out of images and Git. Configure HTTPS browser origins, SMTP, a persistent Ed25519 signer, API_KEY_PEPPER and JWT_SECRET. Set SEED_ADMIN_EMAIL and a unique 16-64 character SEED_ADMIN_PASSWORD only when creating the first administrator.
 5. **Verify the deployed system.** Exercise registration, login, email verification, recovery, expired-session refresh, logout, API-key scope/rate limits, duplicate registration, revocation, and report export against staging before enabling customer traffic.
 
 ## Deployment layout
