@@ -4,6 +4,41 @@
   gap: var(--s20);
 }
 
+.systemStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s16);
+  padding: var(--s12) var(--s16);
+  border: 1px solid hsl(var(--primary) / 0.18);
+  border-radius: var(--radius-card);
+  background: linear-gradient(90deg, hsl(var(--primary) / 0.085), hsl(var(--card)) 55%);
+  color: hsl(var(--muted-foreground));
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--fs11);
+}
+
+.systemIntro,
+.systemSignals,
+.systemSignals span {
+  display: flex;
+  align-items: center;
+}
+
+.systemIntro { gap: var(--s8); }
+.systemIntro strong { color: hsl(var(--foreground)); }
+.systemSignals { flex-wrap: wrap; justify-content: flex-end; gap: var(--s16); }
+.systemSignals span { gap: var(--s6); }
+.systemSignals svg { color: hsl(var(--primary)); }
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.1);
+}
+
 .subCell {
   margin-top: 2px;
   font-size: var(--fs12);
@@ -37,4 +72,9 @@
 .checklist li[data-done="true"] a {
   color: hsl(var(--muted-foreground));
   font-weight: 500;
+}
+
+@media (max-width: 760px) {
+  .systemStrip { align-items: flex-start; flex-direction: column; }
+  .systemSignals { justify-content: flex-start; gap: var(--s10); }
 }

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import { Activity, Boxes, ChevronRight, KeyRound, ScanSearch, ShieldCheck } from "lucide-react";
+import { Activity, Boxes, CheckCircle2, ChevronRight, Database, Fingerprint, KeyRound, ScanSearch, ShieldCheck } from "lucide-react";
 import {
   Area,
   AreaChart,
@@ -121,8 +121,8 @@ export default function DashboardPage() {
   return (
     <div className={shared.stack}>
       <PageHeader
-        title={`${greeting()}, ${user?.firstName ?? getDisplayName(user)} 👋`}
-        subtitle="Your provenance activity at a glance."
+        title="Trust workspace"
+        subtitle={`${greeting()}, ${user?.firstName ?? getDisplayName(user)}. Monitor the integrity and provenance of your digital assets.`}
         actions={
           <CustomButton onClick={() => router.push("/verify")} leftIcon={<ScanSearch size={16} />}>
             Verify an image
@@ -130,11 +130,23 @@ export default function DashboardPage() {
         }
       />
 
+      <div className={classes.systemStrip}>
+        <div className={classes.systemIntro}>
+          <span className={classes.liveDot} />
+          <span><strong>Evidence pipeline</strong> operational</span>
+        </div>
+        <div className={classes.systemSignals}>
+          <span><Fingerprint size={14} /> SHA-256 + pHash</span>
+          <span><Database size={14} /> Signed ledger proofs</span>
+          <span><CheckCircle2 size={14} /> 60 / 40 trust policy</span>
+        </div>
+      </div>
+
       <div className={shared.statsGrid}>
         <StatsCard icon={<KeyRound />} label="Active API keys" value={keys.total} />
         <StatsCard icon={<Boxes />} label="Registered assets" value={assets.total} />
         <StatsCard icon={<Activity />} label="Verifications" value={verifications.total} />
-        <StatsCard icon={<ShieldCheck />} label="Avg. trust score (recent)" value={avgScore ?? "—"} />
+        <StatsCard icon={<ShieldCheck />} label="Recent trust average" value={avgScore ?? "—"} />
       </div>
 
       <SectionCard title="API activity" description="Registrations, verifications and lookups over the last 30 days.">

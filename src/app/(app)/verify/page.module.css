@@ -1,7 +1,7 @@
 .uploadGrid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: var(--s24);
+  gap: var(--s32);
   align-items: start;
 }
 
@@ -11,19 +11,66 @@
   gap: var(--s16);
 }
 
-.steps {
-  margin: 0;
-  padding-left: var(--s20);
+.inputLabel {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: var(--s8);
+  margin: var(--s20) 0 var(--s8);
+  color: hsl(var(--foreground));
   font-size: var(--fs13);
-  color: hsl(var(--muted-foreground));
+  font-weight: 650;
 }
 
-.steps strong {
-  color: hsl(var(--foreground));
+.inputLabel span {
+  padding: 2px var(--s8);
+  border-radius: var(--radius-pill);
+  background: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  font-size: var(--fs10);
+  font-weight: 600;
+  text-transform: uppercase;
 }
+
+.manifestInput {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--s10) var(--s12);
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-btn);
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: var(--fs12);
+}
+
+.manifestInput:focus {
+  border-color: hsl(var(--primary) / 0.6);
+  outline: none;
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+.inputHint { margin-top: var(--s8); color: hsl(var(--muted-foreground)); font-size: var(--fs12); line-height: 1.55; }
+.pipelineLabel { color: hsl(var(--muted-foreground)); font-size: var(--fs10); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s10);
+}
+
+.steps > div {
+  display: flex;
+  align-items: center;
+  gap: var(--s12);
+  padding: var(--s12);
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  background: hsl(var(--muted) / 0.38);
+}
+
+.steps > div > span { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border-radius: 9px; background: hsl(var(--primary) / 0.09); color: hsl(var(--primary)); }
+.steps p { color: hsl(var(--muted-foreground)); font-size: var(--fs11); line-height: 1.45; }
+.steps strong { display: block; color: hsl(var(--foreground)); font-size: var(--fs13); }
 
 .reportMeta {
   display: flex;

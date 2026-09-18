@@ -1,79 +1,167 @@
 .wrapper {
-  display: flex;
   min-height: 100vh;
   width: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: hsl(var(--sidebar-background));
-  color: hsl(var(--foreground));
+  color: hsl(var(--sidebar-foreground));
 }
 
 .inner {
-  width: 100%;
-  max-width: 30rem;
-  padding: var(--s48) var(--s24);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(26rem, 0.95fr);
+  min-height: 100vh;
 }
 
-.header {
-  margin-bottom: var(--s24);
+.contextPanel {
   display: flex;
-  align-items: center;
+  max-width: 46rem;
+  min-height: 100vh;
+  flex-direction: column;
   justify-content: space-between;
-  gap: var(--s16);
+  padding: clamp(2rem, 6vw, 5.5rem);
 }
 
-.brand {
+.brand,
+.mobileBrand {
   display: flex;
   align-items: center;
   gap: var(--s12);
 }
 
 .brandMark {
-  display: flex;
-  height: var(--s44);
-  width: var(--s44);
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid hsl(var(--sidebar-primary) / 0.45);
   border-radius: 12px;
-  background: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
-  box-shadow: var(--shadow-btn);
+  background: hsl(var(--sidebar-primary) / 0.11);
+  color: hsl(var(--sidebar-primary));
+  box-shadow: inset 0 0 24px hsl(var(--sidebar-primary) / 0.08);
 }
 
 .brandName {
   display: block;
-  font-family: var(--font-jakarta), var(--font-inter), sans-serif;
+  font-family: var(--font-jakarta), sans-serif;
   font-size: var(--fs20);
   font-weight: 800;
-  letter-spacing: 0.04em;
-  color: hsl(var(--foreground));
+  letter-spacing: 0.08em;
 }
 
 .brandTag {
   display: block;
-  font-size: var(--fs12);
-  color: hsl(var(--muted-foreground));
+  margin-top: 2px;
+  color: hsl(var(--sidebar-foreground) / 0.55);
+  font-size: var(--fs10);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.badge {
-  border-radius: var(--radius-pill);
-  background: hsl(var(--accent) / 0.15);
-  color: var(--gold-700);
-  padding: var(--s4) var(--s12);
+.message { max-width: 38rem; margin-block: 5rem; }
+
+.eyebrow {
+  color: hsl(var(--sidebar-primary));
   font-size: var(--fs12);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.message h2 {
+  max-width: 36rem;
+  margin-top: var(--s16);
+  font-size: clamp(2.35rem, 4.5vw, 4.6rem);
+  font-weight: 650;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.message > p:last-child {
+  max-width: 34rem;
+  margin-top: var(--s24);
+  color: hsl(var(--sidebar-foreground) / 0.62);
+  font-size: var(--fs16);
+  line-height: 1.75;
+}
+
+.signalList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s12); }
+
+.signal {
+  display: flex;
+  gap: var(--s12);
+  padding: var(--s16);
+  border: 1px solid hsl(var(--sidebar-border));
+  border-radius: 12px;
+  background: hsl(var(--sidebar-accent) / 0.56);
+  color: hsl(var(--sidebar-primary));
+}
+
+.signal span { color: hsl(var(--sidebar-foreground) / 0.52); font-size: var(--fs11); line-height: 1.45; }
+.signal strong { display: block; margin-bottom: 2px; color: hsl(var(--sidebar-foreground)); font-size: var(--fs13); }
+
+.systemState {
+  display: flex;
+  align-items: center;
+  gap: var(--s8);
+  margin-top: var(--s24);
+  color: hsl(var(--sidebar-foreground) / 0.48);
+  font-family: ui-monospace, monospace;
+  font-size: var(--fs11);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.11); }
+
+.formPanel {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: var(--s32);
+  background: hsl(var(--background) / 0.97);
+  color: hsl(var(--foreground));
+  box-shadow: -24px 0 80px rgba(0, 0, 0, 0.16);
 }
 
 .card {
-  background: hsl(var(--card));
+  width: 100%;
+  max-width: 29rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   border: 1px solid hsl(var(--border));
-  border-radius: 1rem;
-  padding: var(--s32) var(--s28);
-  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  background: hsl(var(--card));
+  box-shadow: var(--shadow-card);
+}
+
+.badge {
+  position: absolute;
+  top: var(--s24);
+  right: var(--s24);
+  border: 1px solid var(--warning-border);
+  border-radius: var(--radius-pill);
+  background: var(--warning-bg);
+  color: var(--warning);
+  padding: var(--s6) var(--s12);
+  font-size: var(--fs11);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mobileBrand { display: none; }
+.securityNote { max-width: 29rem; margin-top: var(--s16); color: hsl(var(--muted-foreground)); font-size: var(--fs11); text-align: center; }
+
+@media (max-width: 900px) {
+  .inner { grid-template-columns: 1fr; }
+  .contextPanel { display: none; }
+  .formPanel { padding: var(--s24); }
+  .mobileBrand { display: flex; width: 100%; max-width: 29rem; margin-bottom: var(--s20); }
+  .mobileBrand .brandName { color: hsl(var(--foreground)); }
 }
 
 @media (max-width: 480px) {
-  .card {
-    padding: var(--s24) var(--s20);
-  }
+  .formPanel { align-items: stretch; padding: var(--s20); }
+  .card { padding: var(--s24) var(--s20); }
 }

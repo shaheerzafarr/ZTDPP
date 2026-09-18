@@ -9,8 +9,8 @@
 
 :root {
   /* Brand — Teal (trust, generosity) + Gold accent */
-  --color-primary: 175 84% 32%;
-  --color-primary-hover: 175 82% 26%;
+  --color-primary: 190 100% 29%;
+  --color-primary-hover: 190 100% 24%;
   --color-secondary: 210 40% 96%;
   --color-dark: 222 47% 11%;
   --color-text: 222 47% 11%;
@@ -18,35 +18,35 @@
   --color-secondary-light: 175 60% 90%;
 
   /* Semantic surfaces */
-  --background: 200 24% 97%;
-  --foreground: 222 47% 11%;
+  --background: 216 33% 97%;
+  --foreground: 218 48% 12%;
   --card: 0 0% 100%;
   --card-foreground: 222 47% 11%;
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 11%;
-  --primary: 175 84% 32%;
+  --primary: 190 100% 29%;
   --primary-foreground: 0 0% 100%;
   --secondary: 210 40% 96%;
   --secondary-foreground: 222 47% 11%;
-  --muted: 210 40% 96%;
-  --muted-foreground: 215 16% 47%;
-  --accent: 38 92% 50%;
+  --muted: 214 32% 95%;
+  --muted-foreground: 216 15% 43%;
+  --accent: 35 95% 54%;
   --accent-foreground: 30 90% 15%;
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
-  --border: 214 24% 92%;
-  --input: 214 24% 92%;
-  --ring: 175 84% 32%;
+  --border: 215 25% 87%;
+  --input: 215 25% 87%;
+  --ring: 190 100% 36%;
 
   /* Sidebar — light card surface with teal active states */
-  --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 222 47% 11%;
-  --sidebar-primary: 175 84% 32%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 175 60% 96%;
-  --sidebar-accent-foreground: 175 82% 26%;
-  --sidebar-border: 214 24% 92%;
-  --sidebar-ring: 175 84% 32%;
+  --sidebar-background: 219 52% 9%;
+  --sidebar-foreground: 210 40% 96%;
+  --sidebar-primary: 187 84% 53%;
+  --sidebar-primary-foreground: 219 52% 9%;
+  --sidebar-accent: 218 39% 16%;
+  --sidebar-accent-foreground: 187 84% 70%;
+  --sidebar-border: 217 34% 19%;
+  --sidebar-ring: 187 84% 53%;
 
   /* Brand scale */
   --brand-50: #f0fdfa;
@@ -150,20 +150,20 @@
   --purple-light: hsl(var(--secondary));
 
   /* Radii */
-  --radius: 0.5rem;
+  --radius: 0.625rem;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: 97px;
-  --radius-card: 32px;
-  --radius-btn: 8px;
+  --radius-card: 14px;
+  --radius-btn: 9px;
   --radius-icon: 50%;
   --radius-pill: 9999px;
 
   /* Elevation */
-  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.08);
-  --shadow-btn: 0 2px 8px rgba(13, 148, 136, 0.18);
-  --shadow-popover: 0 4px 24px rgba(2, 56, 149, 0.1);
+  --shadow-card: 0 1px 2px rgba(8, 17, 31, 0.04), 0 12px 32px rgba(8, 17, 31, 0.045);
+  --shadow-btn: 0 5px 16px rgba(0, 127, 145, 0.22);
+  --shadow-popover: 0 18px 45px rgba(8, 17, 31, 0.14);
 
   --spacing-base: 8px;
 

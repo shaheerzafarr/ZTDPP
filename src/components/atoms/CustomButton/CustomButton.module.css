@@ -10,11 +10,12 @@
   font-family: inherit;
   font-size: var(--fs14);
   font-weight: 600;
-  transition: all 0.2s;
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s, background-color 0.18s, border-color 0.18s;
 }
 
 .btn:hover {
-  transform: scale(1.01);
+  transform: translateY(-1px);
 }
 
 .btn:focus-visible {
@@ -40,6 +41,7 @@
   padding: var(--s8) var(--s16);
   background: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
+  box-shadow: var(--shadow-btn);
 }
 
 .btn[data-variant="primary"]:hover {

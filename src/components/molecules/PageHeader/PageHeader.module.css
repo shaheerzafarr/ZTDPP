@@ -1,5 +1,7 @@
 .root {
-  margin-bottom: var(--s24);
+  margin-bottom: var(--s8);
+  padding-bottom: var(--s20);
+  border-bottom: 1px solid hsl(var(--border));
 }
 
 .breadcrumbs {
@@ -91,8 +93,8 @@
 .title {
   color: hsl(var(--foreground));
   font-family: var(--font-dm-sans);
-  font-size: var(--fs24);
-  font-weight: 700;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 750;
   letter-spacing: -0.025em;
 }
 
@@ -100,6 +102,7 @@
   margin-top: var(--s4);
   color: hsl(var(--muted-foreground));
   font-size: var(--fs14);
+  line-height: 1.6;
 }
 
 .actions {

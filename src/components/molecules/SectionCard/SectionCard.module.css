@@ -1,6 +1,6 @@
 .card {
-  border: 1px solid hsl(var(--border) / 0.7);
-  border-radius: 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-card);
   background: hsl(var(--card));
   box-shadow: var(--shadow-card);
   overflow: hidden;
@@ -11,13 +11,15 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: var(--s16);
-  padding: var(--s16) var(--s20);
-  border-bottom: 1px solid hsl(var(--border) / 0.7);
+  padding: var(--s18) var(--s20);
+  border-bottom: 1px solid hsl(var(--border));
+  background: linear-gradient(90deg, hsl(var(--muted) / 0.55), transparent 42%);
 }
 
 .title {
-  font-size: var(--fs15);
-  font-weight: 600;
+  font-size: var(--fs14);
+  font-weight: 700;
+  letter-spacing: 0.02em;
   color: hsl(var(--foreground));
 }
 

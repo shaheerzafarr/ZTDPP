@@ -55,8 +55,8 @@ export default function AdminLoginPage() {
   return (
     <AuthLayout badge="Admin">
       <div className={classes.header}>
-        <h1 className={classes.title}>Admin console</h1>
-        <p className={classes.subtitle}>Restricted to platform administrators.</p>
+        <h1 className={classes.title}>Security operations console</h1>
+        <p className={classes.subtitle}>Restricted access for platform administrators.</p>
       </div>
 
       <form onSubmit={formik.handleSubmit} className={classes.form}>

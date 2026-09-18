@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
-import { ScanSearch, RotateCcw } from "lucide-react";
+import { BrainCircuit, Fingerprint, Link2, ScanSearch, RotateCcw, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import { PageHeader } from "@/components/molecules/PageHeader/PageHeader";
 import SectionCard from "@/components/molecules/SectionCard/SectionCard";
@@ -73,8 +73,8 @@ export default function VerifyPage() {
   return (
     <div className={shared.stack}>
       <PageHeader
-        title="Verify an image"
-        subtitle="Provenance & metadata (60%) combined with AI deepfake analysis (40%)."
+        title="Image integrity analysis"
+        subtitle="Inspect origin claims, tamper signals, metadata, and model evidence in one verification run."
         actions={
           report && (
             <CustomButton variant="outline" onClick={reset} leftIcon={<RotateCcw size={16} />}>
@@ -86,33 +86,25 @@ export default function VerifyPage() {
 
       {!report && (
         <SectionCard
-          title="Upload"
-          description="The file is fingerprinted (SHA-256 + perceptual hash) and analysed in memory. It is not stored."
+          title="Start a verification"
+          description="Your image is processed in memory to produce an evidence report. The uploaded file is not retained."
         >
           <div className={classes.uploadGrid}>
             <div>
               <FileDropzone file={file} onChange={setFile} disabled={loading} />
-              <label htmlFor="manifest-reference">Manifest reference (optional)</label>
+              <label htmlFor="manifest-reference" className={classes.inputLabel}>Manifest reference <span>optional</span></label>
               <input id="manifest-reference" value={manifestId} onChange={e => setManifestId(e.target.value)}
-                maxLength={100} disabled={loading} placeholder="urn:ztdpp:manifest:..." style={{ width: "100%", padding: 12 }} />
-              <p>Use the publisher?s manifest reference to select a claim when several accounts registered the same image.</p>
+                maxLength={100} disabled={loading} placeholder="urn:ztdpp:manifest:..." className={classes.manifestInput} />
+              <p className={classes.inputHint}>Use the publisher&apos;s manifest reference when multiple claims exist for the same image.</p>
             </div>
             <div className={classes.side}>
-              <ol className={classes.steps}>
-                <li>
-                  <strong>Fingerprint</strong> — SHA-256, pHash, EXIF/XMP extraction.
-                </li>
-                <li>
-                  <strong>Provenance</strong> — exact and near-duplicate lookup against registered manifests, signature
-                  and ZTD ledger proof re-computation.
-                </li>
-                <li>
-                  <strong>AI analysis</strong> — deepfake model scored for consistency with the declared origin.
-                </li>
-                <li>
-                  <strong>Trust score</strong> — weighted combination with verdict, classification and signals.
-                </li>
-              </ol>
+              <div className={classes.pipelineLabel}>Evidence pipeline</div>
+              <div className={classes.steps}>
+                <div><span><Fingerprint size={17} /></span><p><strong>Fingerprint</strong>SHA-256, pHash, EXIF and XMP extraction</p></div>
+                <div><span><Link2 size={17} /></span><p><strong>Provenance</strong>Manifest match, signature and ledger proof</p></div>
+                <div><span><BrainCircuit size={17} /></span><p><strong>Model signal</strong>Deepfake probability when the service is enabled</p></div>
+                <div><span><ShieldCheck size={17} /></span><p><strong>Trust verdict</strong>Weighted evidence with explainable signals</p></div>
+              </div>
               <CustomButton
                 onClick={runVerification}
                 disabled={!file || loading}

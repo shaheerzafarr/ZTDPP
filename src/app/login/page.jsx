@@ -65,8 +65,8 @@ export default function LoginPage() {
   return (
     <AuthLayout>
       <div className={classes.header}>
-        <h1 className={classes.title}>Sign in</h1>
-        <p className={classes.subtitle}>Access your provenance dashboard and API keys.</p>
+        <h1 className={classes.title}>Access your trust workspace</h1>
+        <p className={classes.subtitle}>Continue to your provenance records, verification reports, and API controls.</p>
       </div>
 
       <form onSubmit={formik.handleSubmit} className={classes.form}>

@@ -1,5 +1,5 @@
 .inset {
-  background: hsl(var(--muted) / 0.3);
+  background: transparent;
 }
 
 .header {
@@ -14,6 +14,9 @@
   flex: 1;
   overflow: auto;
   padding: var(--s24) var(--s16);
+  max-width: 1680px;
+  width: 100%;
+  margin-inline: auto;
 }
 
 @media (min-width: 768px) {

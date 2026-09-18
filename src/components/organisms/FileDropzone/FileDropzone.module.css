@@ -9,11 +9,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--s6);
+  min-height: 19rem;
+  gap: var(--s8);
   padding: var(--s40) var(--s24);
-  border: 2px dashed hsl(var(--border));
-  border-radius: 1rem;
-  background: hsl(var(--muted) / 0.4);
+  border: 1px dashed hsl(var(--primary) / 0.38);
+  border-radius: var(--radius-card);
+  background:
+    linear-gradient(hsl(var(--primary) / 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--primary) / 0.025) 1px, transparent 1px),
+    hsl(var(--muted) / 0.34);
+  background-size: 22px 22px;
   text-align: center;
   cursor: pointer;
   transition: border-color 0.2s, background-color 0.2s;
@@ -22,7 +27,7 @@
 .zone:hover,
 .dragging {
   border-color: hsl(var(--primary));
-  background: hsl(var(--primary) / 0.06);
+  background-color: hsl(var(--primary) / 0.055);
 }
 
 .disabled {
@@ -36,15 +41,16 @@
   width: var(--s48);
   align-items: center;
   justify-content: center;
+  border: 1px solid hsl(var(--primary) / 0.2);
   border-radius: 14px;
-  background: hsl(var(--primary) / 0.12);
+  background: hsl(var(--primary) / 0.09);
   color: hsl(var(--primary));
   margin-bottom: var(--s6);
 }
 
 .title {
-  font-size: var(--fs14);
-  font-weight: 600;
+  font-size: var(--fs15);
+  font-weight: 700;
   color: hsl(var(--foreground));
 }
 
