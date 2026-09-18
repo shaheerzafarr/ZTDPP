@@ -23,4 +23,8 @@ npm audit --omit=dev
 
 Read the [production readiness and release checklist](docs/PRODUCTION_READINESS.md) before deployment. The backend repository contains the HTTPS Compose stack and database migration command.
 
+For a code-based explanation of every major workflow, persistence boundary,
+metadata field, API route, ledger operation, and trust-score response, read the
+[system architecture and end-to-end flows](docs/SYSTEM_ARCHITECTURE_AND_FLOWS.md).
+
 AI integration and trust scoring remain unchanged during this hardening work.
