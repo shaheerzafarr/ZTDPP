@@ -102,7 +102,7 @@ export default function VerifyPage() {
               <div className={classes.steps}>
                 <div><span><Fingerprint size={17} /></span><p><strong>Fingerprint</strong>SHA-256, pHash, EXIF and XMP extraction</p></div>
                 <div><span><Link2 size={17} /></span><p><strong>Provenance</strong>Manifest match, signature and ledger proof</p></div>
-                <div><span><BrainCircuit size={17} /></span><p><strong>Model signal</strong>Deepfake probability when the service is enabled</p></div>
+                <div><span><BrainCircuit size={17} /></span><p><strong>Model signal</strong>AI-generated probability when the service is enabled; absence of a signal is not proof of camera origin</p></div>
                 <div><span><ShieldCheck size={17} /></span><p><strong>Trust verdict</strong>Weighted evidence with explainable signals</p></div>
               </div>
               <CustomButton

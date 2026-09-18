@@ -15,7 +15,7 @@ import {
 } from "@/components/molecules/ToneBadge/ToneBadge";
 import ProvenanceTimeline from "@/components/organisms/ProvenanceTimeline/ProvenanceTimeline";
 import Tabs from "@/components/molecules/Tabs/Tabs";
-import { SEVERITY_TONES, VERDICTS } from "@/resources/constants/ztdpp";
+import { aiSignalLabel, SEVERITY_TONES, VERDICTS } from "@/resources/constants/ztdpp";
 import { formatBytes, formatDateTime, formatPercent, scoreTone } from "@/resources/utils/helper";
 import classes from "./TrustReport.module.css";
 
@@ -87,14 +87,14 @@ export default function TrustReport({ report, history, manifestLinkBase, classNa
                 effective={metadata.effectiveWeight}
               />
               <WeightCard
-                title="AI deepfake analysis"
+                title="AI image analysis"
                 score={ai.score}
                 weight={ai.weight}
                 effective={ai.effectiveWeight}
                 note={
                   aiResult.status !== "ok"
                     ? `Model ${aiResult.status}${aiResult.error ? ` · ${aiResult.error}` : ""}`
-                    : `${aiResult.label} · P(fake) ${formatPercent(aiResult.fakeProbability)} · ${aiResult.latencyMs} ms`
+                    : `${aiSignalLabel(aiResult.label)} · AI-generated probability ${formatPercent(aiResult.fakeProbability)} · ${aiResult.latencyMs} ms`
                 }
               />
             </div>
@@ -149,9 +149,9 @@ export default function TrustReport({ report, history, manifestLinkBase, classNa
                 dense
                 items={[
                   { label: "Model status", value: aiResult.status },
-                  { label: "Label", value: aiResult.label },
-                  { label: "P(fake)", value: formatPercent(aiResult.fakeProbability, 1) },
-                  { label: "P(real)", value: formatPercent(aiResult.realProbability, 1) },
+                  { label: "Pixel-model signal", value: aiSignalLabel(aiResult.label) },
+                  { label: "AI-generated probability", value: formatPercent(aiResult.fakeProbability, 1) },
+                  { label: "Non-AI probability", value: formatPercent(aiResult.realProbability, 1) },
                   { label: "Confidence", value: formatPercent(aiResult.confidence, 1) },
                   { label: "Latency", value: aiResult.latencyMs ? `${aiResult.latencyMs} ms` : "—" },
                   { label: "Model version", value: aiResult.modelVersion },

@@ -16,7 +16,7 @@ import {
 import HashChip from "@/components/molecules/HashChip/HashChip";
 import useAxios from "@/interceptor/useAxios";
 import { extractItems, extractTotalRecords } from "@/resources/utils/apiResponse";
-import { VERDICTS, MATCH_LABELS } from "@/resources/constants/ztdpp";
+import { aiSignalLabel, VERDICTS, MATCH_LABELS } from "@/resources/constants/ztdpp";
 import { formatDateTime, formatPercent } from "@/resources/utils/helper";
 import shared from "@/styles/shared.module.css";
 import classes from "./page.module.css";
@@ -91,8 +91,8 @@ export default function VerificationsPage() {
       renderItem: ({ data }) =>
         data.ai?.status === "ok" ? (
           <div>
-            <RenderGeneralTextCell text={data.ai.label ?? "—"} fontType="medium" />
-            <div className={classes.sub}>P(fake) {formatPercent(data.ai.fakeProbability)}</div>
+            <RenderGeneralTextCell text={aiSignalLabel(data.ai.label)} fontType="medium" />
+            <div className={classes.sub}>AI-generated probability {formatPercent(data.ai.fakeProbability)}</div>
           </div>
         ) : (
           <RenderGeneralTextCell text={data.ai?.status ?? "n/a"} fontType="light" />

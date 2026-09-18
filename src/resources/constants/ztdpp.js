@@ -74,5 +74,11 @@ export const SEVERITY_TONES = {
   info: "info",
 };
 
+export function aiSignalLabel(label) {
+  if (label === "fake") return "AI-generated signal";
+  if (label === "real") return "No AI pixel signal";
+  return label ? String(label).replace(/_/g, " ") : "Unknown";
+}
+
 export const ROLE_SUPER_ADMIN = "super-admin";
 export const ROLE_USER = "user";

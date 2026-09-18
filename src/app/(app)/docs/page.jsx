@@ -706,7 +706,7 @@ export default function DocsPage() {
             <h3>AI consistency (40%)</h3>
             <p>
               The AI component measures <strong>consistency between the declared origin and the deepfake model</strong>,
-              not raw "realness". With <code>p = P(fake)</code>:
+              rather than proving whether pixels are "real". With <code>p = P(AI-generated)</code>:
             </p>
             <Table>
               <TableHeader>

@@ -11,7 +11,7 @@ import { ClassificationBadge, MatchBadge, ToneBadge, VerdictBadge } from "@/comp
 import HashChip from "@/components/molecules/HashChip/HashChip";
 import useAxios from "@/interceptor/useAxios";
 import { extractItems, extractTotalRecords } from "@/resources/utils/apiResponse";
-import { MATCH_LABELS, VERDICTS } from "@/resources/constants/ztdpp";
+import { aiSignalLabel, MATCH_LABELS, VERDICTS } from "@/resources/constants/ztdpp";
 import { formatDateTime, formatNumber, formatPercent, getDisplayName, scoreTone, shortId } from "@/resources/utils/helper";
 import shared from "@/styles/shared.module.css";
 import classes from "./page.module.css";
@@ -111,8 +111,8 @@ function AdminVerificationsContent() {
       renderItem: ({ data }) =>
         data.ai?.status === "ok" ? (
           <div>
-            <RenderGeneralTextCell text={data.ai.label ?? "—"} fontType="regular" />
-            <div className={classes.sub}>P(fake) {formatPercent(data.ai.fakeProbability)}</div>
+            <RenderGeneralTextCell text={aiSignalLabel(data.ai.label)} fontType="regular" />
+            <div className={classes.sub}>AI-generated probability {formatPercent(data.ai.fakeProbability)}</div>
           </div>
         ) : (
           <ToneBadge tone="neutral">{data.ai?.status ?? "n/a"}</ToneBadge>
