@@ -61,7 +61,6 @@
     "react-resizable-panels": "^2.1.9",
     "react-select": "^5.10.2",
     "react-select-async-paginate": "^0.7.11",
-    "reactjs-otp-input": "^2.0.10",
     "recharts": "^2.15.4",
     "redux-persist": "^6.0.0",
     "socket.io-client": "^4.8.3",

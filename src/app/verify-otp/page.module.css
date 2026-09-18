@@ -19,6 +19,33 @@
   margin-top: var(--s16);
 }
 
+.otpGroup {
+  display: flex;
+  justify-content: center;
+  gap: var(--s8);
+}
+
+.otpInput {
+  width: 3rem;
+  height: 3rem;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius);
+  outline: none;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: inherit;
+  font-size: var(--fs18);
+  font-weight: 600;
+  text-align: center;
+}
+
+.otpInput:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.25);
+}
+
 .fieldIcon {
   color: hsl(var(--muted-foreground));
 }
@@ -87,6 +114,15 @@
 }
 
 @media (max-width: 480px) {
+  .otpGroup {
+    gap: var(--s4);
+  }
+
+  .otpInput {
+    width: 2.5rem;
+    height: 2.75rem;
+  }
+
   .row {
     grid-template-columns: 1fr;
   }
